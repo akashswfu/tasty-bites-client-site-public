@@ -12,7 +12,7 @@ const FoodCard = ({ food }) => {
 
     pickup_locatoin,
     food_image,
-    id,
+    _id,
   } = food;
 
   return (
@@ -60,7 +60,7 @@ const FoodCard = ({ food }) => {
           </div>
 
           <Link
-            // to={`/item/${id}`}
+            to={`/food/${_id}`}
             className="inline-flex items-center w-full justify-center  font-medium text-center text-white text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700 focus:ring-4 focus:outline-none rounded-md focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 py-3"
           >
             <button className="font-semibold text-lg">View Details</button>
