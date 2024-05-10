@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import useAuth from "../../ReactHooks/useAuth";
 import ReactDatePicker from "react-datepicker";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 
 const UpdateFood = () => {
   const food = useLoaderData();
+  const navigate = useNavigate();
 
   const { user } = useAuth();
 
@@ -42,8 +43,9 @@ const UpdateFood = () => {
         `http://localhost:5000/food/${food._id}`,
         updateFood
       );
+      navigate("/manageMyFood");
       toast.success("Food Updated Successfully");
-      //   navigate("/my-posted-jobs");
+
       console.log(data);
     } catch (err) {
       console.log(err);

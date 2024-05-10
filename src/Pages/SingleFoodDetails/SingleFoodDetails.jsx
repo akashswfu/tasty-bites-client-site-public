@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../ReactHooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 import ReactDatePicker from "react-datepicker";
+import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 
 const SingleFoodDetails = () => {
   const { user } = useAuth();
   const food = useLoaderData();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
   const [requestDate, setRequestDate] = useState(new Date());
   const {
     foodName,
@@ -20,25 +23,50 @@ const SingleFoodDetails = () => {
     _id,
   } = food;
 
-  const handleRequest = (e) => {
+  const handleRequest = async (e) => {
     e.preventDefault();
-    // if (user?.email === donatorEmail) {
-    //   return toast.error("Action not permited");
-    // }
+    if (user?.email === donatorEmail) {
+      return toast.error("Action not permited");
+    }
     const form = e.target;
     const additionalNotes = form.additionalNotes.value;
     const amount = form.amount.value;
-    console.log(additionalNotes, amount);
+
     const foodReq = {
       foodName,
       foodImage,
-      _id,
       donatorEmail,
       donatorName,
       loggedEmail: user?.email,
       requestDate,
+      pickupLocation,
+      expired_datetime,
+      additionalNotes,
+      amount,
     };
-    console.log(requestDate);
+    try {
+      const { data } = await axiosSecure.post("/foodReq", foodReq);
+      if (data.insertedId) {
+        toast.success("Request Success");
+        try {
+          await axiosSecure.delete(`/food/${_id}`);
+          navigate("/myFoodReq");
+        } catch (err) {
+          toast.error(err.message);
+        }
+      }
+      // navigate("/my-bids");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response.data);
+      e.target.reset();
+    }
+
+    // try {
+    //   const { data } = await axiosSecure.delete(`/food/${_id}`);
+    // } catch (err) {
+    //   toast.error(err.message);
+    // }
   };
 
   return (
@@ -263,6 +291,7 @@ const SingleFoodDetails = () => {
                       <input
                         type="text"
                         name="amount"
+                        required
                         placeholder="Donation Amount"
                         className="input input-bordered  w-full"
                       />
