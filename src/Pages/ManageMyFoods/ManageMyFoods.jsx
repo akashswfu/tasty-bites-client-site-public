@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import useAuth from "../../ReactHooks/useAuth";
 import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
@@ -15,7 +17,46 @@ const ManageMyFoods = () => {
     };
     getData();
   }, [user]);
-  console.log(foods);
+  const handleDelete = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        console.log("User want to");
+        try {
+          const { data } = await axiosSecure.delete(`/food/${id}`);
+          console.log(data);
+          if (data.deletedCount > 0) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Item has been deleted.",
+              icon: "success",
+            });
+            const remaining = foods.filter((f) => f._id !== id);
+            setFoods(remaining);
+          }
+        } catch (err) {
+          toast.error(err.message);
+        }
+      }
+    });
+
+    // try {
+    //   const { data } = await axiosSecure.delete(`/food/${id}`);
+    //   console.log(data);
+    //   toast.success("Deleted Succefully");
+    //   const remaining = foods.filter((j) => j._id !== id);
+    //   setFoods(remaining);
+    // } catch (err) {
+    //   toast.error(err.message);
+    // }
+  };
   return (
     <div>
       <h3 className="text-center text-3xl font-semibold py-10">My All Foods</h3>
@@ -48,12 +89,12 @@ const ManageMyFoods = () => {
                   <td className="text-blue-600 underline">View Details</td>
                 </Link> */}
                   <td>
-                    <Link>
+                    <Link to={`/updateFood/${item._id}`}>
                       <td className="text-blue-600 underline">Update</td>
                     </Link>
                   </td>
                   <td>
-                    <Link>
+                    <Link onClick={() => handleDelete(item._id)}>
                       <td className="text-blue-600 underline">Delete</td>
                     </Link>
                   </td>
@@ -63,6 +104,7 @@ const ManageMyFoods = () => {
           </table>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

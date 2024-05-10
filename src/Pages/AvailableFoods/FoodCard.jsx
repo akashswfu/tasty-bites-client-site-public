@@ -5,15 +5,27 @@ import { IoTime } from "react-icons/io5";
 
 const FoodCard = ({ food }) => {
   const {
-    food_name,
+    foodName,
     donator_name,
-    food_quantity,
+    foodQuantity,
     expired_datetime,
 
-    pickup_locatoin,
-    food_image,
+    pickupLocation,
+    foodImage,
     _id,
   } = food;
+
+  // const newFood = {
+  //   foodName,
+  //   foodImage,
+  //   foodQuantity,
+  //   pickupLocation,
+  //   expired_datetime,
+  //   additionalNotes,
+  //   donatorEmail,
+  //   donatorName,
+  //   donatorImage,
+  // };
 
   return (
     <div>
@@ -23,7 +35,7 @@ const FoodCard = ({ food }) => {
           <p>{stock}</p>
         </div> */}
         <div className="">
-          <img className="h-60 w-full " src="{image}" alt="" />
+          <img className="h-60 w-full " src={foodImage} alt="" />
           {/* {stock === "In stock" ? (
             <p className="absolute top-3 right-3 bg-red-500 uppercase rounded-md px-2 py-1 text-white font-semibold">
               {stock}
@@ -37,7 +49,7 @@ const FoodCard = ({ food }) => {
         <div className="p-5">
           <div>
             <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              {food_name}
+              {foodName}
             </h5>
             <h1 className="text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-xl font-semibold py-2">
               {donator_name}
@@ -47,7 +59,7 @@ const FoodCard = ({ food }) => {
           <div className="flex  items-center gap-10 mb-5 mt-5">
             <div className="flex items-center gap-2 text-blue-700 font-semibold">
               <FaSackDollar className="text-xl font-bold" />
-              <p className=""> {food_quantity}</p>
+              <p className=""> {foodQuantity}</p>
             </div>
             <div className="flex items-center gap-2 font-semibold text-yellow-500">
               <FaStar className=" text-xl font-bold" />
@@ -55,7 +67,7 @@ const FoodCard = ({ food }) => {
             </div>
             <div className="flex items-center gap-2 font-semibold text-red-500">
               <IoTime className=" text-xl font-bold" />
-              <p className=""> {pickup_locatoin} (hr)</p>
+              <p className=""> {pickupLocation} (hr)</p>
             </div>
           </div>
 

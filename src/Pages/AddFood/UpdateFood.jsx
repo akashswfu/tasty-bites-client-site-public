@@ -1,15 +1,18 @@
-import React, { useState } from "react";
-import useAuth from "../../ReactHooks/useAuth";
-import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import useAuth from "../../ReactHooks/useAuth";
 import ReactDatePicker from "react-datepicker";
+import { useLoaderData } from "react-router-dom";
+import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 
-const AddFood = () => {
+const UpdateFood = () => {
+  const food = useLoaderData();
+
   const { user } = useAuth();
 
   const [startDate, setStartDate] = useState(new Date());
-  const handleAddFood = async (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
     const form = e.target;
     const foodName = form.foodName.value;
@@ -22,7 +25,7 @@ const AddFood = () => {
     const donatorName = user?.displayName;
     const donatorImage = user?.photoURL;
 
-    const newFood = {
+    const updateFood = {
       foodName,
       foodImage,
       foodQuantity,
@@ -33,38 +36,20 @@ const AddFood = () => {
       donatorName,
       donatorImage,
     };
-    console.log(newFood);
 
     try {
-      const { data } = await axios.post("http://localhost:5000/food", newFood);
-      toast.success("Food Added Successfully");
+      const { data } = await axios.put(
+        `http://localhost:5000/food/${food._id}`,
+        updateFood
+      );
+      toast.success("Food Updated Successfully");
       //   navigate("/my-posted-jobs");
       console.log(data);
     } catch (err) {
       console.log(err);
     }
-
-    // fetch("https://color-your-life-server-site.vercel.app/item", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(newItem),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.insertedId) {
-    //       Swal.fire({
-    //         title: "Success!",
-    //         text: "New Item Added Successfully",
-    //         icon: "success",
-    //       });
-    //       navigate("/myCraftList");
-    //     }
-    //   });
-    // e.form.reset();
   };
+
   return (
     <div className="md:p-24 p-5 bg-gray-100">
       {/* <h2 className="text-center text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text  text-4xl font-bold md:pb-16 my-10 md:my-0 uppercase">
@@ -75,7 +60,7 @@ const AddFood = () => {
         <h1 className="text-2xl font-bold">Donar Name : {user.displayName}</h1>
         <p>Donar Email: {user.email}</p>
       </div>
-      <form onSubmit={handleAddFood}>
+      <form onSubmit={handleUpdate}>
         {/* foodname and foodImage row  */}
         <div className="md:flex w-full  gap-10 justify-center md:mb-6">
           <div className="form-control md:w-1/2">
@@ -89,6 +74,7 @@ const AddFood = () => {
                 name="foodName"
                 className="input input-bordered w-full"
                 required
+                defaultValue={food.foodName}
               />
             </label>
           </div>
@@ -103,6 +89,7 @@ const AddFood = () => {
                 placeholder="Food Image"
                 className="input input-bordered  w-full"
                 required
+                defaultValue={food.foodImage}
               />
             </label>
           </div>
@@ -122,6 +109,7 @@ const AddFood = () => {
                 name="foodQuantity"
                 className="input input-bordered w-full"
                 required
+                defaultValue={food.foodQuantity}
               />
             </label>
           </div>
@@ -136,6 +124,7 @@ const AddFood = () => {
                 placeholder="Pickup Location"
                 className="input input-bordered  w-full"
                 required
+                defaultValue={food.pickupLocation}
               />
             </label>
           </div>
@@ -150,6 +139,7 @@ const AddFood = () => {
             <ReactDatePicker
               className="border input input-bordered rounded-md w-full"
               selected={startDate}
+              defaultValue={food.startDate}
               onChange={(date) => setStartDate(date)}
             />
           </div>
@@ -164,6 +154,7 @@ const AddFood = () => {
                 placeholder="Additional Notes"
                 className="input input-bordered  w-full"
                 required
+                defaultValue={food.additionalNotes}
               />
             </label>
           </div>
@@ -193,7 +184,7 @@ const AddFood = () => {
         <input
           className="btn w-full text-lg uppercase  text-white text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700"
           type="submit"
-          value="Add Item"
+          value="Update Food"
         />
       </form>
       <Toaster />
@@ -201,4 +192,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default UpdateFood;
