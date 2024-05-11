@@ -8,7 +8,7 @@ const FoodCard = ({ food }) => {
     foodName,
     donator_name,
     foodQuantity,
-    expired_datetime,
+    deadline,
 
     pickupLocation,
     foodImage,
@@ -20,7 +20,7 @@ const FoodCard = ({ food }) => {
   //   foodImage,
   //   foodQuantity,
   //   pickupLocation,
-  //   expired_datetime,
+  //   deadline,
   //   additionalNotes,
   //   donatorEmail,
   //   donatorName,
@@ -63,7 +63,7 @@ const FoodCard = ({ food }) => {
             </div>
             <div className="flex items-center gap-2 font-semibold text-yellow-500">
               <FaStar className=" text-xl font-bold" />
-              <p className=""> {expired_datetime.slice(0, 10)}</p>
+              <p className=""> {deadline.slice(0, 10)}</p>
             </div>
             <div className="flex items-center gap-2 font-semibold text-red-500">
               <IoTime className=" text-xl font-bold" />

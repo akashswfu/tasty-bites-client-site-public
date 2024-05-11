@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddFood = () => {
   const { user } = useAuth();
 
   const [startDate, setStartDate] = useState(new Date());
+
   const handleAddFood = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,7 +18,7 @@ const AddFood = () => {
     const foodImage = form.foodImage.value;
     const foodQuantity = form.foodQuantity.value;
     const pickupLocation = form.pickupLocation.value;
-    const expired_datetime = startDate;
+    const deadline = startDate;
     const additionalNotes = form.additionalNotes.value;
     const donatorEmail = user?.email;
     const donatorName = user?.displayName;
@@ -27,7 +29,7 @@ const AddFood = () => {
       foodImage,
       foodQuantity,
       pickupLocation,
-      expired_datetime,
+      deadline,
       additionalNotes,
       donatorEmail,
       donatorName,

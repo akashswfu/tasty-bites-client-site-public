@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     const getFood = async () => {
-      const { data } = await axiosSecure("/foods");
+      const { data } = await axiosSecure(`/foods`);
       setFoods(data);
     };
     getFood();

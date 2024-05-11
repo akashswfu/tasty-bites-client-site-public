@@ -12,6 +12,9 @@ const AvailableFoods = () => {
   const [foodsPerPage, setFoodsPerPage] = useState(3);
   const [sort, setSort] = useState("");
   const [count, setCount] = useState(0);
+  const [search, setSearch] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const [layout, setLayout] = useState(3);
 
   // useEffect(() => {
   //   const getData = async () => {
@@ -61,14 +64,28 @@ const AvailableFoods = () => {
   const handlePaginationButton = (value) => {
     setCurrentPage(value);
   };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearch(searchText);
+  };
+
+  const handleLayout = () => {
+    if (layout === 3) {
+      setLayout(2);
+    } else {
+      setLayout(3);
+    }
+  };
 
   return (
     <div>
       {/* Search options  */}
       <div className="flex justify-evenly">
-        {/* <form>
-          <div className="flex p-1 overflow-hidden border rounded-lg  w-[330px]  focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+        <form onSubmit={handleSearch}>
+          <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
             <input
+              onChange={(e) => setSearchText(e.target.value)}
+              value={searchText}
               className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
               type="text"
               name="search"
@@ -80,18 +97,21 @@ const AvailableFoods = () => {
               Search
             </button>
           </div>
-        </form> */}
+        </form>
+
+        <div onClick={() => handleLayout(!setLayout())}>
+          <button className="btn btn-primary">Layout 3 to 2</button>
+        </div>
 
         {/* sort by expire date */}
         <div>
           <select
             onChange={(e) => {
               setSort(e.target.value);
-              setCurrentPage(1);
             }}
             value={sort}
-            name="sort"
-            id="sort"
+            name="deadline"
+            id="deadline"
             className="border p-4 rounded-md"
           >
             <option value="">Sort By Expired Date</option>
@@ -103,7 +123,11 @@ const AvailableFoods = () => {
         <button className="btn">Reset</button>
       </div>
 
-      <div className="grid grid-cols-1  md:grid-cols-3 gap-5">
+      <div
+        className={`grid grid-cols-1 ${
+          layout === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
+        } gap-5 justify-center `}
+      >
         {foods.map((food) => (
           <FoodCard food={food} key={food.id}></FoodCard>
         ))}

@@ -20,7 +20,7 @@ const UpdateFood = () => {
     const foodImage = form.foodImage.value;
     const foodQuantity = form.foodQuantity.value;
     const pickupLocation = form.pickupLocation.value;
-    const expired_datetime = startDate;
+    const deadline = startDate;
     const additionalNotes = form.additionalNotes.value;
     const donatorEmail = user?.email;
     const donatorName = user?.displayName;
@@ -31,7 +31,7 @@ const UpdateFood = () => {
       foodImage,
       foodQuantity,
       pickupLocation,
-      expired_datetime,
+      deadline,
       additionalNotes,
       donatorEmail,
       donatorName,

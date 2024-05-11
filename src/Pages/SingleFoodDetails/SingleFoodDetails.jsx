@@ -15,7 +15,7 @@ const SingleFoodDetails = () => {
     foodName,
     foodImage,
     foodQuantity,
-    expired_datetime,
+    deadline,
     additionalNotes,
     pickupLocation,
     donatorEmail,
@@ -40,7 +40,7 @@ const SingleFoodDetails = () => {
       loggedEmail: user?.email,
       requestDate,
       pickupLocation,
-      expired_datetime,
+      deadline,
       additionalNotes,
       amount,
     };
@@ -78,7 +78,7 @@ const SingleFoodDetails = () => {
         <h2 className="card-title text-3xl font-semibold">{foodName}</h2>
         <p className="text-xl">Food Quantify : {foodQuantity}</p>
         <p>Donar Name: {user.displayName}</p>
-        <p>Expired Date : {expired_datetime.slice(0, 10)}</p>
+        <p>Expired Date : {deadline.slice(0, 10)}</p>
 
         {/* Modal section  */}
 
@@ -188,7 +188,7 @@ const SingleFoodDetails = () => {
                         placeholder="FoodId"
                         className="input input-bordered  w-full"
                         readOnly
-                        defaultValue={expired_datetime.slice(0, 10)}
+                        defaultValue={deadline.slice(0, 10)}
                       />
                     </label>
                   </div>

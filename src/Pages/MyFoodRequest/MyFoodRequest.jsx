@@ -21,7 +21,7 @@ const MyFoodRequest = () => {
     donatorName,
     requestDate,
     pickupLocation,
-    expired_datetime,
+    deadline,
     additionalNotes,
     amount,
   } = foods;
@@ -52,7 +52,7 @@ const MyFoodRequest = () => {
                   <th>{idx + 1}</th>
                   <td>{item.foodName}</td>
                   <td>{item.pickupLocation}</td>
-                  <td>{item.expired_datetime}</td>
+                  <td>{item.deadline}</td>
                   <td>{item.requestDate}</td>
                   <td>{item.amount}</td>
                   <td className="text-green-500">Requested</td>
