@@ -70,7 +70,7 @@ const SingleFoodDetails = () => {
   };
 
   return (
-    <div className="card w-4/5 h-96   mx-auto card-side bg-base-100 shadow-xl">
+    <div className="card w-4/5 h-96   mx-auto card-side bg-base-100 ">
       <figure className="w-1/2">
         <img className="h-full" src={foodImage} alt="Movie" />
       </figure>

@@ -1,8 +1,29 @@
-# React + Vite
+# npm package name which i have used for this project.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- React simple Typewriter
 
-Currently, two official plugins are available:
+- React Awesome reveal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- AOS Package,
+
+- React Hook from,
+
+- Swiper slider.
+
+# Tasty Bites : https://tasty-bites-auth.web.app
+
+# My website main Features
+
+- All the data fetch by useLoader,
+
+- First i use firebase authentication for login and registration.
+
+- If any one want to login by google popup and github popup they can, i also implement this.
+
+- There are two private route , private route means without login or register can access this route. if any user who just visit and clicked Add a craft , he or she redirect login page, only after login they can visit this page.
+
+- I applied Mongodb CRUD operation for data create read update and delete.
+
+- Only user can update and delete their data.
+
+- Other user cannot delete.

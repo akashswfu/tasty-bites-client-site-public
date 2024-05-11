@@ -11,10 +11,10 @@ const AvailableFoods = () => {
   const { loading, setLoading } = useAuth();
   const [foodsPerPage, setFoodsPerPage] = useState(3);
   const [sort, setSort] = useState("");
-  const [count, setCount] = useState(0);
-  const [search, setSearch] = useState("");
   const [searchText, setSearchText] = useState("");
   const [layout, setLayout] = useState(3);
+  const [count, setCount] = useState(0);
+  const [search, setSearch] = useState("");
 
   // useEffect(() => {
   //   const getData = async () => {
@@ -29,22 +29,22 @@ const AvailableFoods = () => {
   useEffect(() => {
     const getFood = async () => {
       const { data } = await axiosSecure(
-        `/all-foods?page=${currentPage}&size=${foodsPerPage}&sort=${sort}`
+        `/all-foods?page=${currentPage}&size=${foodsPerPage}&sort=${sort}&search=${search}`
       );
       setFoods(data);
     };
     getFood();
-  }, [currentPage, foodsPerPage, sort]);
+  }, [currentPage, foodsPerPage, sort, search]);
   console.log(foods);
 
   useEffect(() => {
     const getCount = async () => {
-      const { data } = await axiosSecure("/foods-count");
+      const { data } = await axiosSecure(`/foods-count?search=${search}`);
 
       setCount(data.count);
     };
     getCount();
-  }, []);
+  }, [search]);
 
   // if (foods.length === 0) {
   //   setLoading(true);
@@ -68,6 +68,7 @@ const AvailableFoods = () => {
     e.preventDefault();
     setSearch(searchText);
   };
+  console.log(searchText);
 
   const handleLayout = () => {
     if (layout === 3) {
@@ -75,6 +76,13 @@ const AvailableFoods = () => {
     } else {
       setLayout(3);
     }
+  };
+
+  const handleReset = () => {
+    setSort("");
+    setLayout(3);
+    setSearch("");
+    setSearchText("");
   };
 
   return (
@@ -120,7 +128,9 @@ const AvailableFoods = () => {
           </select>
         </div>
         {/* reset Button  */}
-        <button className="btn">Reset</button>
+        <button onClick={handleReset} className="btn">
+          Reset
+        </button>
       </div>
 
       <div

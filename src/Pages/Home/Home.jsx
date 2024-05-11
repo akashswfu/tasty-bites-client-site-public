@@ -3,6 +3,7 @@ import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 import FoodCard from "../AvailableFoods/FoodCard";
 import useAuth from "../../ReactHooks/useAuth";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [foods, setFoods] = useState([]);
@@ -30,6 +31,10 @@ const Home = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>TastyBites | Home</title>
+        {/* <link rel="canonical" href="" /> */}
+      </Helmet>
       <div className="grid grid-cols-1  md:grid-cols-3 gap-5">
         {foods.slice(0, 6).map((food) => (
           <FoodCard food={food} key={food.id}></FoodCard>
