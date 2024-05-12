@@ -1,0 +1,75 @@
+import React from "react";
+import { useTypewriter } from "react-simple-typewriter";
+import { Slide } from "react-awesome-reveal";
+import { TbTruckDelivery } from "react-icons/tb";
+import { MdOutlineSentimentSatisfiedAlt } from "react-icons/md";
+import { TiMessages } from "react-icons/ti";
+import { TbCashBanknoteOff } from "react-icons/tb";
+
+const Service = () => {
+  const [typeEffect] = useTypewriter({
+    words: [" Our Artist", " Our Team"],
+    // loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 40,
+  });
+  return (
+    <div className="mt-20">
+      {/* <Slide direction="{'down'} delay={1000}">
+        <h1 className="text-3xl font-bold text-center text-center mt-20">
+          Meet
+          <span className="text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text">
+            {typeEffect}{" "}
+          </span>
+        </h1>
+        <p className="text-center md:w-1/2 w-full px-5 md:px-0 mx-auto font-semibold text-lg pt-8 pb-20">
+          Passionate artists crafting diverse narratives through vibrant
+          strokes, encapsulating emotions, and awakening imagination in every
+          canvas.
+        </p>
+      </Slide> */}
+      <div className="flex flex-col md:flex-row justify-center md:justify-around space-y-7 md:space-y-0">
+        <div className="flex flex-col space-y-4 items-center">
+          <TbTruckDelivery className="w-20 h-20 text-red-600 " />
+          <h2 className="text-3xl font-bold text-center">
+            Fatest <br /> Delivery
+          </h2>
+          <p className="w-1/2 text-center text-xl  font-semibold">
+            We deliver across the country to make sure you get your products on
+            time.
+          </p>
+        </div>
+        <div className="flex flex-col space-y-4 items-center">
+          <MdOutlineSentimentSatisfiedAlt className="w-20 h-20 text-red-600 " />
+          <h2 className="text-3xl font-bold text-center">
+            Satisfied <br /> Customers
+          </h2>
+          <p className="w-1/2 text-center text-xl font-semibold">
+            We strive to give our customers the best experience!
+          </p>
+        </div>
+        <div className="flex flex-col space-y-4 items-center">
+          <TiMessages className="w-20 h-20 text-red-600 " />
+          <h2 className="text-3xl font-bold text-center">
+            Top-Notch <br /> Support
+          </h2>
+          <p className="w-1/2 text-center text-xl font-semibold">
+            Contact us anytime if you're having issues with your order.
+          </p>
+        </div>
+        <div className="flex flex-col space-y-4 items-center">
+          <TbCashBanknoteOff className="w-20 h-20 text-red-600 " />
+          <h2 className="text-3xl font-bold text-center">
+            Cash On <br /> Delivery{" "}
+          </h2>
+          <p className="w-1/2 text-center text-xl font-semibold">
+            We only use trusted payment providers to make sure your transaction
+            is secure!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Service;

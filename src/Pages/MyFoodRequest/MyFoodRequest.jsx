@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 import useAuth from "../../ReactHooks/useAuth";
 import { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const MyFoodRequest = () => {
   const { user } = useAuth();
@@ -30,6 +31,10 @@ const MyFoodRequest = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>TastyBites | My Food Request</title>
+        {/* <link rel="canonical" href="" /> */}
+      </Helmet>
       <h3 className="text-center text-3xl font-semibold py-10">
         My Foods Request
       </h3>

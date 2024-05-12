@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 import FoodCard from "./FoodCard";
 import useAuth from "../../ReactHooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
@@ -89,6 +90,10 @@ const AvailableFoods = () => {
     <div>
       {/* Search options  */}
       <div className="flex justify-evenly">
+        <Helmet>
+          <title>TastyBites | Available Foods</title>
+          {/* <link rel="canonical" href="" /> */}
+        </Helmet>
         <form onSubmit={handleSearch}>
           <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
             <input

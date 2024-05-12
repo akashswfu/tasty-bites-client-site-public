@@ -4,6 +4,11 @@ import FoodCard from "../AvailableFoods/FoodCard";
 import useAuth from "../../ReactHooks/useAuth";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Banner from "./Banner";
+import OurChef from "./OurChef";
+import MoreItem from "./MoreItem";
+import Subscribe from "./Subscribe";
+import Service from "./Service";
 
 const Home = () => {
   const [foods, setFoods] = useState([]);
@@ -35,6 +40,10 @@ const Home = () => {
         <title>TastyBites | Home</title>
         {/* <link rel="canonical" href="" /> */}
       </Helmet>
+      <div>
+        <Banner></Banner>
+      </div>
+
       <div className="grid grid-cols-1  md:grid-cols-3 gap-5">
         {foods.slice(0, 6).map((food) => (
           <FoodCard food={food} key={food.id}></FoodCard>
@@ -44,6 +53,18 @@ const Home = () => {
         <Link to="/availableFoods">
           <button className="btn btn-primary ">SHOW ALL</button>
         </Link>
+      </div>
+      <div>
+        <OurChef></OurChef>
+      </div>
+      <div>
+        <MoreItem></MoreItem>
+      </div>
+      <div>
+        <Subscribe></Subscribe>
+      </div>
+      <div>
+        <Service></Service>
       </div>
     </div>
   );

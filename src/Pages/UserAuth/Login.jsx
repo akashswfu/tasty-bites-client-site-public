@@ -8,10 +8,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../ReactHooks/useAuth";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { signIn, googleLogin, gitHubLogin, setLoading } = useAuth();
+  const { signIn, googleLogin, setLoading } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -34,18 +35,6 @@ const Login = () => {
     } catch (err) {
       toast.error("Access Denied");
     }
-  };
-  const handleGithubLogin = () => {
-    gitHubLogin()
-      .then(() => {
-        toast.success("Login Successfully");
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 1000);
-      })
-      .catch(() => {
-        toast.error("Access Denied");
-      });
   };
 
   const {
@@ -79,6 +68,10 @@ const Login = () => {
 
   return (
     <div data-aos="fade-right" data-aos-duration="1000">
+      <Helmet>
+        <title>TastyBites | Login</title>
+        {/* <link rel="canonical" href="" /> */}
+      </Helmet>
       <div className="hero-content w-full flex-col mt-8">
         <div className="card shrink-0 w-full max-w-md  shadow-2xl bg-base-100 ">
           <div className="text-center ">
@@ -142,13 +135,6 @@ const Login = () => {
             >
               <FcGoogle className="text-2xl me-2" />
               Google Login
-            </button>
-            <button
-              onClick={handleGithubLogin}
-              className="btn btn-outline hover:border-0 hover:outline-none bg-gradient-to-r  hover:from-purple-600 hover:to-pink-700 font-semibold text-pink-400 "
-            >
-              <SiGithub className="text-2xl  me-2 " />
-              GitHub Login
             </button>
           </div>
         </div>

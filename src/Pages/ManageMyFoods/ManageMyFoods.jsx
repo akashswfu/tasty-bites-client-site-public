@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import { getDate } from "date-fns";
+import { Helmet } from "react-helmet-async";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
@@ -84,6 +85,10 @@ const ManageMyFoods = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>TastyBites | Manage My Foods</title>
+        {/* <link rel="canonical" href="" /> */}
+      </Helmet>
       <h3 className="text-center text-3xl font-semibold py-10">My All Foods</h3>
       <div className="min-h-[calc(100vh-400px)] mt-10 ">
         <div className="overflow-x-auto">

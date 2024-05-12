@@ -4,6 +4,10 @@ import useAuth from "../../ReactHooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 import ReactDatePicker from "react-datepicker";
 import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
+
+import { fadeIn } from "../../variants";
+import { motion } from "framer-motion";
 
 const SingleFoodDetails = () => {
   const { user } = useAuth();
@@ -71,7 +75,16 @@ const SingleFoodDetails = () => {
   };
 
   return (
-    <div className="card w-4/5 h-96   mx-auto card-side bg-base-100 ">
+    <motion.div
+      variants={fadeIn("up", 0.5)}
+      initial="hidden"
+      whileInView={"show"}
+      viewport={{ once: false, amount: 0.7 }}
+      className="card w-4/5 h-96   mx-auto card-side bg-base-100 "
+    >
+      <Helmet>
+        <title>TastyBites | {foodName}</title>
+      </Helmet>
       <figure className="w-1/2">
         <img className="h-full" src={foodImage} alt="Movie" />
       </figure>
@@ -315,7 +328,7 @@ const SingleFoodDetails = () => {
           </label>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

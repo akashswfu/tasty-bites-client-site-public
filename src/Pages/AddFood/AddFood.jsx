@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Helmet } from "react-helmet-async";
 
 const AddFood = () => {
   const { user } = useAuth();
@@ -47,30 +48,13 @@ const AddFood = () => {
     } catch (err) {
       console.log(err);
     }
-
-    // fetch("https://color-your-life-server-site.vercel.app/item", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(newItem),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.insertedId) {
-    //       Swal.fire({
-    //         title: "Success!",
-    //         text: "New Item Added Successfully",
-    //         icon: "success",
-    //       });
-    //       navigate("/myCraftList");
-    //     }
-    //   });
-    // e.form.reset();
   };
   return (
     <div className="md:p-24 p-5 bg-gray-100">
+      <Helmet>
+        <title>TastyBites | Add Food</title>
+        {/* <link rel="canonical" href="" /> */}
+      </Helmet>
       {/* <h2 className="text-center text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text  text-4xl font-bold md:pb-16 my-10 md:my-0 uppercase">
         Add a New Food
       </h2> */}

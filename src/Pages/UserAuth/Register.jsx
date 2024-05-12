@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../ReactHooks/useAuth";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -69,6 +70,10 @@ const Register = () => {
 
   return (
     <div data-aos="fade-left" data-aos-duration="1000">
+      <Helmet>
+        <title>TastyBites | Register</title>
+        {/* <link rel="canonical" href="" /> */}
+      </Helmet>
       <div className="hero-content w-full  flex-col">
         <div className="text-center"></div>
         <div className="card shrink-0 w-full max-w-md shadow-2xl bg-base-100">

@@ -5,6 +5,7 @@ import useAuth from "../../ReactHooks/useAuth";
 import ReactDatePicker from "react-datepicker";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const UpdateFood = () => {
   const food = useLoaderData();
@@ -43,8 +44,8 @@ const UpdateFood = () => {
         `http://localhost:5000/food/${food._id}`,
         updateFood
       );
-      navigate("/manageMyFood");
       toast.success("Food Updated Successfully");
+      navigate("/manageMyFood");
 
       console.log(data);
     } catch (err) {
@@ -57,6 +58,10 @@ const UpdateFood = () => {
       {/* <h2 className="text-center text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text  text-4xl font-bold md:pb-16 my-10 md:my-0 uppercase">
         Add a New Food
       </h2> */}
+      <Helmet>
+        <title>TastyBites | {food.foodName}</title>
+        {/* <link rel="canonical" href="" /> */}
+      </Helmet>
       <div className="flex flex-col justify-center items-center space-y-3 mb-10">
         <img className="rounded-full w-40" src={user.photoURL} alt="" />
         <h1 className="text-2xl font-bold">Donar Name : {user.displayName}</h1>

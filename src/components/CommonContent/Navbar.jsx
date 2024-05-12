@@ -46,7 +46,7 @@ const Navbar = () => {
         <NavLink to="/availableFoods">Available Foods</NavLink>
       </li>
       <li className="">
-        <NavLink to="/addFood">Add a Food</NavLink>
+        <NavLink to="/addFood">Add Food</NavLink>
       </li>
       <li className="">
         <NavLink to="/manageMyFood">Manage My Foods</NavLink>
