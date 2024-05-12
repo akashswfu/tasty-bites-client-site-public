@@ -4,21 +4,43 @@ import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
+import { getDate } from "date-fns";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const [foods, setFoods] = useState([]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axiosSecure(`/foods/${user?.email}`, {
-        withCredentials: true,
-      });
-      setFoods(data);
-    };
-    getData();
-  }, [user]);
+  const {
+    data: myDatas = [],
+    isLoading,
+    refetch,
+    isError,
+    error,
+  } = useQuery({
+    queryFn: () => getData(),
+    queryKey: ["myData"],
+  });
+
+  console.log(myDatas);
+
+  // const [foods, setFoods] = useState([]);
+
+  // useEffect(() => {
+  //   getData();
+  // }, [user]);
+
+  const getData = async () => {
+    const { data } = await axiosSecure(`/foods/${user?.email}`, {
+      withCredentials: true,
+    });
+    return data;
+  };
+
+  if (isLoading) {
+    return <p>Data is Still Loading</p>;
+  }
+
   const handleDelete = async (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -40,8 +62,9 @@ const ManageMyFoods = () => {
               text: "Your Item has been deleted.",
               icon: "success",
             });
-            const remaining = foods.filter((f) => f._id !== id);
-            setFoods(remaining);
+            // const remaining = foods.filter((f) => f._id !== id);
+            // setFoods(remaining);
+            refetch();
           }
         } catch (err) {
           toast.error(err.message);
@@ -79,7 +102,7 @@ const ManageMyFoods = () => {
               </tr>
             </thead>
             <tbody className="py-5">
-              {foods.map((item, idx) => (
+              {myDatas.map((item, idx) => (
                 <tr key={item._id} className="bg-base-200 my-5 py-10">
                   <th>{idx + 1}</th>
                   <td>{item.foodName}</td>
