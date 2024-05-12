@@ -153,6 +153,7 @@ const SingleFoodDetails = () => {
                         name="foodQuantity"
                         className="input input-bordered w-full"
                         required
+                        readOnly
                         defaultValue={food.foodQuantity}
                       />
                     </label>

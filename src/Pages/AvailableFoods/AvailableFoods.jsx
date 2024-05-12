@@ -46,18 +46,18 @@ const AvailableFoods = () => {
     getCount();
   }, [search]);
 
-  // if (foods.length === 0) {
-  //   setLoading(true);
-  // } else {
-  //   setLoading(false);
-  // }
-  // if (loading) {
-  //   return (
-  //     <div className="text-center text-7xl h-min-[cal(100vh-130px)] text-blue-400 py-10">
-  //       Loading....
-  //     </div>
-  //   );
-  // }
+  if (foods.length === 0) {
+    setLoading(true);
+  } else {
+    setLoading(false);
+  }
+  if (loading) {
+    return (
+      <div className="text-center text-7xl h-min-[cal(100vh-130px)] text-blue-400 py-10">
+        Loading....
+      </div>
+    );
+  }
   const numberOfPages = Math.ceil(count / foodsPerPage);
   const pages = [...Array(numberOfPages).keys()].map((element) => element + 1);
 
