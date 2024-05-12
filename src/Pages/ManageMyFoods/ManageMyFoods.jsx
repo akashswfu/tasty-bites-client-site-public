@@ -12,7 +12,9 @@ const ManageMyFoods = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axiosSecure(`/foods/${user?.email}`);
+      const { data } = await axiosSecure(`/foods/${user?.email}`, {
+        withCredentials: true,
+      });
       setFoods(data);
     };
     getData();

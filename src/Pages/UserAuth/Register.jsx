@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../ReactHooks/useAuth";
+import axios from "axios";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -21,7 +22,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { name, email, photo, password } = data;
     console.log(data);
 
@@ -37,22 +38,33 @@ const Register = () => {
 
     setSuccess("");
     setError("");
-    createUser(email, password)
-      .then(() => {
-        toast.success("Registration Successfully");
+    try {
+      const result = await createUser(email, password);
+      toast.success("Registration Successfully");
 
-        updateUserProfile(name, photo).then(() => {
-          setUser({ displayName: name, photoURL: photo, email: email });
-          setLoading(false);
-          setTimeout(() => {
-            navigate(location?.state ? location.state : "/");
-          }, 1000);
-        });
-      })
-
-      .catch(() => {
-        toast.warning("User Already Exists! ");
+      await updateUserProfile(name, photo);
+      setUser({
+        ...result?.user,
+        displayName: name,
+        photoURL: photo,
+        email: email,
       });
+
+      const { data } = await axios.post(
+        `http://localhost:5000/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      toast.success("Login Successfully");
+      setLoading(false);
+      setTimeout(() => {
+        navigate(location?.state ? location.state : "/");
+      }, 1000);
+    } catch (err) {
+      toast.warning("User Already Exists! ");
+    }
   };
 
   return (

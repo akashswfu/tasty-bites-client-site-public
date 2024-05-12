@@ -7,26 +7,33 @@ import { SiGithub } from "react-icons/si";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../ReactHooks/useAuth";
+import axios from "axios";
 
 const Login = () => {
   const [error, setError] = useState("");
-
   const { signIn, googleLogin, gitHubLogin, setLoading } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleGoogleLogin = () => {
-    googleLogin()
-      .then(() => {
-        toast.success("Login Successfully");
-        setLoading(false);
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 1000);
-      })
-      .catch(() => {
-        toast.error("Access Denied");
-      });
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await googleLogin();
+      const { data } = await axios.post(
+        `http://localhost:5000/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      toast.success("Login Successfully");
+      setLoading(false);
+      setTimeout(() => {
+        navigate(location?.state ? location.state : "/");
+      }, 1000);
+    } catch (err) {
+      toast.error("Access Denied");
+    }
   };
   const handleGithubLogin = () => {
     gitHubLogin()
@@ -47,19 +54,27 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { email, password } = data;
-    signIn(email, password)
-      .then(() => {
-        toast.success("Login Successfully");
 
-        setTimeout(() => {
-          navigate(location?.state ? location.state : "/");
-        }, 1500);
-      })
-      .catch(() => {
-        toast.error("Email or Password does not match");
-      });
+    try {
+      const result = signIn(email, password);
+      const { data } = await axios.post(
+        `http://localhost:5000/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      toast.success("Login Successfully");
+      setLoading(false);
+      setTimeout(() => {
+        navigate(location?.state ? location.state : "/");
+      }, 1000);
+    } catch (err) {
+      toast.error("Email or Password does not match");
+    }
   };
 
   return (

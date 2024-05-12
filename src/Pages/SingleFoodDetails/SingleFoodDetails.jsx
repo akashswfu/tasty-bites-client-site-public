@@ -44,6 +44,7 @@ const SingleFoodDetails = () => {
       additionalNotes,
       amount,
     };
+    console.log(foodReq);
     try {
       const { data } = await axiosSecure.post("/foodReq", foodReq);
       if (data.insertedId) {
@@ -78,7 +79,7 @@ const SingleFoodDetails = () => {
         <h2 className="card-title text-3xl font-semibold">{foodName}</h2>
         <p className="text-xl">Food Quantify : {foodQuantity}</p>
         <p>Donar Name: {user.displayName}</p>
-        <p>Expired Date : {deadline.slice(0, 10)}</p>
+        <p>Expired Date : {deadline}</p>
 
         {/* Modal section  */}
 
@@ -188,7 +189,7 @@ const SingleFoodDetails = () => {
                         placeholder="FoodId"
                         className="input input-bordered  w-full"
                         readOnly
-                        defaultValue={deadline.slice(0, 10)}
+                        defaultValue={deadline}
                       />
                     </label>
                   </div>
@@ -215,6 +216,7 @@ const SingleFoodDetails = () => {
                     <ReactDatePicker
                       className="border input input-bordered rounded-md w-full"
                       selected={requestDate}
+                      readOnly
                       // defaultValue={food.startDate}
                       onChange={(date) => setRequestDate(date)}
                     />

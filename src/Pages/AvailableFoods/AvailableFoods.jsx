@@ -9,7 +9,7 @@ const AvailableFoods = () => {
   const axiosSecure = useAxiosSecure();
   const [currentPage, setCurrentPage] = useState(1);
   const { loading, setLoading } = useAuth();
-  const [foodsPerPage, setFoodsPerPage] = useState(3);
+  const [foodsPerPage, setFoodsPerPage] = useState(6);
   const [sort, setSort] = useState("");
   const [searchText, setSearchText] = useState("");
   const [layout, setLayout] = useState(3);
@@ -136,7 +136,7 @@ const AvailableFoods = () => {
       <div
         className={`grid grid-cols-1 ${
           layout === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
-        } gap-5 justify-center `}
+        } gap-5 justify-center min-h-[calc(100vh)]`}
       >
         {foods.map((food) => (
           <FoodCard food={food} key={food.id}></FoodCard>
