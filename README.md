@@ -24,6 +24,6 @@
 
 - I applied Mongodb CRUD operation for data create read update and delete.
 
-- Only user can update and delete their data.
+- Only us  er can update and delete their data.
 
 - Other user cannot delete.

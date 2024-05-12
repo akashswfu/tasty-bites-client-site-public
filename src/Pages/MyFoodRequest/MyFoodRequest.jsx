@@ -9,7 +9,9 @@ const MyFoodRequest = () => {
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axiosSecure(`/foodsReq/${user?.email}`);
+      const { data } = await axiosSecure(`/foodsReq/${user?.email}`, {
+        withCredentials: true,
+      });
       setFoods(data);
     };
     getData();

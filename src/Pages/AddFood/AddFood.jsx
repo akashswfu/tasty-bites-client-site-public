@@ -38,7 +38,9 @@ const AddFood = () => {
     console.log(newFood);
 
     try {
-      const { data } = await axios.post("http://localhost:5000/food", newFood);
+      const { data } = await axios.post("http://localhost:5000/food", newFood, {
+        withCredentials: true,
+      });
       toast.success("Food Added Successfully");
       //   navigate("/my-posted-jobs");
       console.log(data);
