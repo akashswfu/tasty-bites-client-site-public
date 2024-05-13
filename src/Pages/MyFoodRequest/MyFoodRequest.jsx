@@ -59,8 +59,8 @@ const MyFoodRequest = () => {
                   <th>{idx + 1}</th>
                   <td>{item.foodName}</td>
                   <td>{item.pickupLocation}</td>
-                  <td>{item.deadline}</td>
-                  <td>{item.requestDate}</td>
+                  <td>{item.deadline.slice(0, 10)}</td>
+                  <td>{item.requestDate.slice(0, 10)}</td>
                   <td>{item.amount}</td>
                   <td className="text-green-500">Requested</td>
                 </tr>

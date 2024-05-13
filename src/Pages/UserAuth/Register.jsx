@@ -171,7 +171,7 @@ const Register = () => {
 
             {error && <p className="text-sm text-red-500">{error}</p>}
             <div className="form-control mt-6">
-              <button className="btn  uppercase  text-white text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700 font-semibold ">
+              <button className="btn  uppercase  text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700 font-semibold ">
                 Register
               </button>
             </div>

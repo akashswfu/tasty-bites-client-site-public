@@ -10,11 +10,16 @@ const MoreItem = () => {
   });
   return (
     <div>
-      <h1 className="text-3xl font-bold text-center my-20 ">
-        <span className="text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text">
+      <h1 className="text-4xl font-bold text-center mt-16">
+        <span className=" text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text">
           {typeEffect}{" "}
         </span>
       </h1>
+      <p className="text-center md:w-1/2 w-full px-5 md:px-0 mx-auto font-semibold text-lg pt-8 pb-20">
+        Discover diverse dishes, tantalizing tastes, and gourmet treasures.
+        Explore our menu for savory delights and culinary adventures. Indulge
+        today!
+      </p>
       <div>
         <div className="grid grid-cols-1 px-5 md:px-0 md:grid-cols-2 lg:grid-cols-4 justify-center ">
           <div

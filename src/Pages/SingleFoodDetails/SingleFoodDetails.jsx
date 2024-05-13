@@ -92,7 +92,7 @@ const SingleFoodDetails = () => {
         <h2 className="card-title text-3xl font-semibold">{foodName}</h2>
         <p className="text-xl">Food Quantify : {foodQuantity}</p>
         <p>Donar Name: {user.displayName}</p>
-        <p>Expired Date : {deadline}</p>
+        <p>Expired Date : {deadline.slice(0, 10)}</p>
 
         {/* Modal section  */}
 
@@ -315,7 +315,7 @@ const SingleFoodDetails = () => {
                   </div>
                 </div>
                 <input
-                  className="btn w-full text-lg uppercase  text-white text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700"
+                  className="btn w-full text-lg uppercase  text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700"
                   type="submit"
                   value="Request Food"
                 />

@@ -87,7 +87,7 @@ const AvailableFoods = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-[calc(100vh)]">
       {/* Search options  */}
       <div className="flex justify-evenly">
         <Helmet>
@@ -99,22 +99,18 @@ const AvailableFoods = () => {
             <input
               onChange={(e) => setSearchText(e.target.value)}
               value={searchText}
-              className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
+              className="px-6 py-2  text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
               type="text"
               name="search"
-              placeholder="Enter Job Title"
+              placeholder="Enter Food Name"
               aria-label="Enter Job Title"
             />
 
-            <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+            <button className="text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn">
               Search
             </button>
           </div>
         </form>
-
-        <div onClick={() => handleLayout(!setLayout())}>
-          <button className="btn btn-primary">Layout 3 to 2</button>
-        </div>
 
         {/* sort by expire date */}
         <div>
@@ -125,15 +121,19 @@ const AvailableFoods = () => {
             value={sort}
             name="deadline"
             id="deadline"
-            className="border p-4 rounded-md"
+            className=" p-4  rounded-md text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn"
           >
-            <option value="">Sort By Expired Date</option>
-            <option value="dsc">Descending Order</option>
-            <option value="asc">Ascending Order</option>
+            <option value="dsc">Low Expired Date</option>
+            <option value="asc">High Expired Date</option>
           </select>
         </div>
         {/* reset Button  */}
-        <button onClick={handleReset} className="btn">
+        <div onClick={() => handleLayout(!setLayout())}>
+          <button className="text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn">
+            Change Layout
+          </button>
+        </div>
+        <button onClick={handleReset} className="btn btn-error text-white">
           Reset
         </button>
       </div>
@@ -151,7 +151,7 @@ const AvailableFoods = () => {
         <button
           disabled={currentPage === 1}
           onClick={() => handlePaginationButton(currentPage - 1)}
-          className="px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gray-200 rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-green-500  hover:text-white"
+          className="px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gradient-to-r bg-gray-200 rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:from-sky-600 hover:to-indigo-700  hover:text-white"
         >
           <div className="flex items-center -mx-1">
             <svg
@@ -169,7 +169,7 @@ const AvailableFoods = () => {
               />
             </svg>
 
-            <span className="mx-1">previous</span>
+            <span></span>
           </div>
         </button>
 
@@ -178,7 +178,9 @@ const AvailableFoods = () => {
             onClick={() => handlePaginationButton(btnNum)}
             key={btnNum}
             className={`hidden ${
-              currentPage === btnNum ? "bg-green-500" : ""
+              currentPage === btnNum
+                ? "text-transparent text-white bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700"
+                : ""
             } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline   hover:text-white`}
           >
             {btnNum}
@@ -188,10 +190,10 @@ const AvailableFoods = () => {
         <button
           disabled={currentPage === numberOfPages}
           onClick={() => handlePaginationButton(currentPage + 1)}
-          className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-green-500 disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
+          className="px-4 py-2 mx-1 bg-gradient-to-r  text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:from-sky-600 hover:to-indigo-700 disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
         >
           <div className="flex items-center -mx-1">
-            <span className="mx-1">Next</span>
+            <span className=""></span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"

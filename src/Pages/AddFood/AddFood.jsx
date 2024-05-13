@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet-async";
 
 const AddFood = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const [startDate, setStartDate] = useState(new Date());
 
@@ -43,7 +44,7 @@ const AddFood = () => {
         withCredentials: true,
       });
       toast.success("Food Added Successfully");
-      //   navigate("/my-posted-jobs");
+      navigate("/manageMyFood");
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -59,7 +60,7 @@ const AddFood = () => {
         Add a New Food
       </h2> */}
       <div className="flex flex-col justify-center items-center space-y-3 mb-10">
-        <img className="rounded-full w-40" src={user.photoURL} alt="" />
+        <img className="rounded-full w-40 h-40" src={user.photoURL} alt="" />
         <h1 className="text-2xl font-bold">Donar Name : {user.displayName}</h1>
         <p>Donar Email: {user.email}</p>
       </div>
@@ -156,30 +157,26 @@ const AddFood = () => {
             </label>
           </div>
         </div>
-        {/* Food Status  and donator name */}
-
-        <div className="md:flex gap-10 justify-center md:mb-6">
-          <h1 className="text-xl font-semibold">Status: Available</h1>
-          {/* <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Processing Time (hr)</span>
-            </label>
-            <label className="input-group">
-              <input
-                type="text"
-                placeholder="Processing Time"
-                name="processing"
-                className="input input-bordered w-full"
-                required
-              />
-            </label>
-          </div> */}
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Food Status</span>
+          </label>
+          <label className="input-group">
+            <input
+              type="text"
+              name="foodAvailable"
+              placeholder="food avaiable"
+              className="input input-bordered  w-full text-green-500"
+              readOnly
+              defaultValue={"Available"}
+            />
+          </label>
         </div>
 
         {/* user email and name  */}
 
         <input
-          className="btn w-full text-lg uppercase  text-white text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700"
+          className="btn w-full text-lg uppercase mt-16  text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700"
           type="submit"
           value="Add Item"
         />

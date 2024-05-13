@@ -14,21 +14,8 @@ const Service = () => {
     deleteSpeed: 40,
   });
   return (
-    <div className="mt-20">
-      {/* <Slide direction="{'down'} delay={1000}">
-        <h1 className="text-3xl font-bold text-center text-center mt-20">
-          Meet
-          <span className="text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text">
-            {typeEffect}{" "}
-          </span>
-        </h1>
-        <p className="text-center md:w-1/2 w-full px-5 md:px-0 mx-auto font-semibold text-lg pt-8 pb-20">
-          Passionate artists crafting diverse narratives through vibrant
-          strokes, encapsulating emotions, and awakening imagination in every
-          canvas.
-        </p>
-      </Slide> */}
-      <div className="flex flex-col md:flex-row justify-center md:justify-around space-y-7 md:space-y-0">
+    <div className="mt-16">
+      <div className="flex flex-col md:flex-row justify-center md:justify-around space-y-7 md:space-y-0 bg-gray-100 py-16">
         <div className="flex flex-col space-y-4 items-center">
           <TbTruckDelivery className="w-20 h-20 text-red-600 " />
           <h2 className="text-3xl font-bold text-center">

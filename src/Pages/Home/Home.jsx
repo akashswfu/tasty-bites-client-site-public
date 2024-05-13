@@ -9,8 +9,15 @@ import OurChef from "./OurChef";
 import MoreItem from "./MoreItem";
 import Subscribe from "./Subscribe";
 import Service from "./Service";
+import { useTypewriter } from "react-simple-typewriter";
 
 const Home = () => {
+  const [typeEffect] = useTypewriter({
+    words: ["Food Items"],
+    // loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 40,
+  });
   const [foods, setFoods] = useState([]);
   const axiosSecure = useAxiosSecure();
   const { loading, setLoading } = useAuth();
@@ -43,28 +50,38 @@ const Home = () => {
       <div>
         <Banner></Banner>
       </div>
+      <div>
+        <h1 className="text-4xl font-bold text-center mt-20 mb-10">
+          <span className="  text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text">
+            {typeEffect}{" "}
+          </span>
+        </h1>
+      </div>
 
       <div className="grid grid-cols-1  md:grid-cols-3 gap-5">
         {foods.slice(0, 6).map((food) => (
           <FoodCard food={food} key={food.id}></FoodCard>
         ))}
       </div>
-      <div className="py-10 text-center">
+      <div className="py-16 text-center ">
         <Link to="/availableFoods">
-          <button className="btn btn-primary ">SHOW ALL</button>
+          <button className="px-6 rounded-md py-3 border-0 text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700 text-white">
+            SHOW ALL
+          </button>
         </Link>
       </div>
       <div>
-        <OurChef></OurChef>
+        <Service></Service>
       </div>
       <div>
         <MoreItem></MoreItem>
       </div>
-      <div>
+      <div className="mt-16">
         <Subscribe></Subscribe>
       </div>
+
       <div>
-        <Service></Service>
+        <OurChef></OurChef>
       </div>
     </div>
   );

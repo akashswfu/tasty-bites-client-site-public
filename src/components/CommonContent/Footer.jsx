@@ -1,13 +1,19 @@
+import icons from "../../../public/icons.png";
 const Footer = () => {
   return (
     <footer className="footer mt-10 footer-center p-10 bg-gray-200 dark:bg-purple-700 text-base-content rounded">
+      <div className="flex flex-col items-center gap-3 ">
+        <img className="w-20 h-20 hidden md:flex lg:flex" src={icons} alt="" />
+        <span className="hidden text-xl lg:text-3xl font-bold md:flex lg:flex text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text ">
+          TastyBites
+        </span>
+      </div>
       <nav className="">
-        <h1 className="text-xl font-bold">Our Office Location</h1>
         <div className="grid grid-flow-col gap-4">
-          <div className="font-semibold">USA</div>
-          <div className="font-semibold">London</div>
-          <div className="font-semibold">Canada</div>
           <div className="font-semibold">Bangladesh</div>
+          <div className="font-semibold">Thailand</div>
+          <div className="font-semibold">India</div>
+          <div className="font-semibold">China</div>
         </div>
       </nav>
       <nav>
@@ -48,9 +54,7 @@ const Footer = () => {
         </div>
       </nav>
       <aside>
-        <p>
-          Copyright © 2024 - All right reserved by Color Your Life Company Ltd
-        </p>
+        <p>Copyright © 2024 - All right reserved by Tasty Bites Company Ltd</p>
       </aside>
     </footer>
   );

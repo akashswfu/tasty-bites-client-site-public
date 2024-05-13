@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-// import profile from "../../../public/images/user.png";
+import icons from "../../../public/icons.png";
 // import homeIcons from "/images/h.png";
 import Swal from "sweetalert2";
 
@@ -48,24 +48,17 @@ const Navbar = () => {
       <li className="">
         <NavLink to="/addFood">Add Food</NavLink>
       </li>
-      <li className="">
-        <NavLink to="/manageMyFood">Manage My Foods</NavLink>
-      </li>
-      <li className="">
-        <NavLink to="/myFoodReq">My Food Request</NavLink>
-      </li>
-
-      {/* {user && (
-        <li>
-          <NavLink to="/updateProfile">All Art & craft Items</NavLink>
+      {user && (
+        <li className="">
+          <NavLink to="/manageMyFood">Manage My Foods</NavLink>
         </li>
-      )} */}
+      )}
 
-      {/* {user && (
-        <li>
-          <NavLink to={"/myCraftList"}>My Art & Craft List</NavLink>
+      {user && (
+        <li className="">
+          <NavLink to="/myFoodReq">My Food Request</NavLink>
         </li>
-      )} */}
+      )}
     </div>
   );
 
@@ -88,7 +81,7 @@ const Navbar = () => {
   // };
 
   return (
-    <div className="navbar rounded-b-lg dark:bg-purple-700 bg-gray-200 py-4 px-4 md:mb-10">
+    <div className="navbar  dark:bg-purple-700 bg-gray-200 py-4 px-4 md:mb-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -121,10 +114,10 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <img
             className="w-10 h-10 hidden md:flex lg:flex"
-            src="{homeIcons}"
+            src={icons}
             alt=""
           />
-          <span className="hidden text-xl lg:text-3xl font-bold md:flex lg:flex text-transparent bg-gradient-to-r from-purple-500 to-pink-800 bg-clip-text ">
+          <span className="hidden text-xl lg:text-3xl font-bold md:flex lg:flex text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text ">
             TastyBites
           </span>
         </div>
@@ -172,7 +165,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleLogout}
-              className="btn btn-outline text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md"
+              className="btn  text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md"
             >
               Logout
             </button>
@@ -180,13 +173,8 @@ const Navbar = () => {
         ) : (
           <div className="flex gap-4">
             <Link to="/login">
-              <button className="btn btn-outline text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700 px-8 font-semibold uppercase text-md  text-white border-0 text-md">
+              <button className="btn btn-outline rounded-md text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700 px-8 font-semibold uppercase text-md  text-white border-0 text-md">
                 Login
-              </button>
-            </Link>
-            <Link to="/register">
-              <button className="btn btn-outline text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700 px-8 font-semibold uppercase text-md  text-white border-0 text-md">
-                Register
               </button>
             </Link>
           </div>

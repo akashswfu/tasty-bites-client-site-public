@@ -189,7 +189,7 @@ const UpdateFood = () => {
         {/* user email and name  */}
 
         <input
-          className="btn w-full text-lg uppercase  text-white text-transparent bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-700"
+          className="btn w-full text-lg uppercase  text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700"
           type="submit"
           value="Update Food"
         />

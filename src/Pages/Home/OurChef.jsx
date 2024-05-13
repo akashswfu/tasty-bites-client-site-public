@@ -4,24 +4,23 @@ import { Slide } from "react-awesome-reveal";
 
 const OurChef = () => {
   const [typeEffect] = useTypewriter({
-    words: [" Our Artist", " Our Team"],
+    words: ["Best Award Winning Chef"],
     // loop: {},
     typeSpeed: 100,
     deleteSpeed: 40,
   });
   return (
-    <div>
+    <div className="mb-10">
       <Slide direction="{'down'} delay={1000}">
         <h1 className="text-3xl font-bold text-center mt-20">
-          Meet
-          <span className="text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text">
+          <span className=" text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text">
             {typeEffect}{" "}
           </span>
         </h1>
-        <p className="text-center md:w-1/2 w-full px-5 md:px-0 mx-auto font-semibold text-lg pt-8 pb-20">
-          Passionate artists crafting diverse narratives through vibrant
-          strokes, encapsulating emotions, and awakening imagination in every
-          canvas.
+        <p className="text-center md:w-1/2 w-full px-5 md:px-0 mx-auto font-semibold text-lg pt-8 pb-16">
+          Renowned for culinary prowess, our award-winning chef crafts exquisite
+          dishes with passion, innovation, and a dedication to perfection.
+          Experience excellence today!
         </p>
       </Slide>
       <div className="flex flex-col md:flex-row justify-center md:justify-around space-y-7 md:space-y-0">
@@ -32,7 +31,7 @@ const OurChef = () => {
             alt=""
           />
           <h2 className="text-2xl font-semibold">Alex Panday</h2>
-          <p className="text-xl font-semibold">Landscape Painting</p>
+          <p className="text-xl font-semibold">Bangladesh</p>
         </div>
         <div className="flex flex-col space-y-4 items-center">
           <img
@@ -41,7 +40,7 @@ const OurChef = () => {
             alt=""
           />
           <h2 className="text-2xl font-semibold">Subin Ahemed</h2>
-          <p className="text-xl font-semibold">Charcoal Sketching</p>
+          <p className="text-xl font-semibold">South Korea</p>
         </div>
         <div className="flex flex-col space-y-4 items-center">
           <img
@@ -50,7 +49,7 @@ const OurChef = () => {
             alt=""
           />
           <h2 className="text-2xl font-semibold">Bijoy Sarkar</h2>
-          <p className="text-xl font-semibold">Watercolour Painting</p>
+          <p className="text-xl font-semibold">Thailand</p>
         </div>
         <div className="flex flex-col space-y-4 items-center">
           <img
@@ -59,7 +58,7 @@ const OurChef = () => {
             alt=""
           />
           <h2 className="text-2xl font-semibold">Akash Sutradhar </h2>
-          <p className="text-xl font-semibold">Mountain view canvas</p>
+          <p className="text-xl font-semibold">India</p>
         </div>
       </div>
     </div>
