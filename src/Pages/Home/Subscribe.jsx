@@ -3,7 +3,7 @@ import React from "react";
 const Subscribe = () => {
   return (
     <div className="bg-gray-100 flex flex-col item-center justify-center space-y-5 py-20">
-      <h2 className="text-3xl font-bold text-center uppercase">
+      <h2 className="md:text-3xl text-2xl w-3/4 md:w-full mx-auto font-bold text-center uppercase">
         Always Get Latest Foods Item update
       </h2>
       <p className="text-xl text-center font-semibold w-full md:w-1/2 mx-auto ">

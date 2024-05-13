@@ -31,14 +31,14 @@ const FoodCard = ({ food }) => {
   // };
 
   return (
-    <div>
-      <div className="max-w-sm mt-10 mx-auto shadow-2xl dark:bg-gray-800 dark:border-gray-700 ">
+    <div className="mx-auto">
+      <div className="max-w-sm mt-10 md:mx-auto shadow-2xl dark:bg-gray-800 dark:border-gray-700 mx-3">
         <div className="">
           <img className="h-60 w-full " src={foodImage} alt="" />
         </div>
         <div className="p-5">
           <div>
-            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 md:text-2xl text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {foodName}
             </h5>
             <p>{additionalNotes}</p>
@@ -55,7 +55,7 @@ const FoodCard = ({ food }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-10 my-4">
+          <div className="md:flex items-center gap-10 my-4">
             <div className="flex items-center gap-2 font-semibold text-yellow-600">
               <FcExpired className=" text-xl font-bold" />
               <p className=""> {deadline.slice(0, 10)}</p>
@@ -72,7 +72,7 @@ const FoodCard = ({ food }) => {
             to={`/food/${_id}`}
             className="inline-flex items-center w-full justify-center  font-medium text-center text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700 focus:ring-4 focus:outline-none rounded-md focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 py-3"
           >
-            <button className="font-semibold text-lg">View Details</button>
+            <button className="font-semibold md:text-lg">View Details</button>
           </Link>
         </div>
       </div>

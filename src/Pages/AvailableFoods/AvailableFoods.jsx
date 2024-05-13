@@ -88,60 +88,64 @@ const AvailableFoods = () => {
 
   return (
     <div className="min-h-[calc(100vh)]">
+      <Helmet>
+        <title>TastyBites | Available Foods</title>
+        {/* <link rel="canonical" href="" /> */}
+      </Helmet>
       {/* Search options  */}
-      <div className="flex justify-evenly">
-        <Helmet>
-          <title>TastyBites | Available Foods</title>
-          {/* <link rel="canonical" href="" /> */}
-        </Helmet>
-        <form onSubmit={handleSearch}>
-          <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
-            <input
-              onChange={(e) => setSearchText(e.target.value)}
-              value={searchText}
-              className="px-6 py-2  text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
-              type="text"
-              name="search"
-              placeholder="Enter Food Name"
-              aria-label="Enter Job Title"
-            />
+      <div className="flex flex-col lg:flex-row justify-center gap-5 md:gap-10 items-center">
+        {/* sort by expire date */}
+        <div className="flex flex-col md:flex-row justify-center gap-5 md:gap-10 items-center">
+          <div className="mt-10 md:mt-0">
+            <select
+              onChange={(e) => {
+                setSort(e.target.value);
+              }}
+              value={sort}
+              name="deadline"
+              id="deadline"
+              className=" p-4  rounded-md text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn"
+            >
+              <option value="dsc">Low Expired Date</option>
+              <option value="asc">High Expired Date</option>
+            </select>
+          </div>
+          <form onSubmit={handleSearch}>
+            <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+              <input
+                onChange={(e) => setSearchText(e.target.value)}
+                value={searchText}
+                className="px-6 py-2  text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
+                type="text"
+                name="search"
+                placeholder="Enter Food Name"
+                aria-label="Enter Job Title"
+              />
 
+              <button className="text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn">
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {/* reset Button  */}
+        <div className="flex flex-col md:flex-row justify-center gap-5 md:gap-10 items-center">
+          <div onClick={() => handleLayout(!setLayout())}>
             <button className="text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn">
-              Search
+              Change Layout
             </button>
           </div>
-        </form>
-
-        {/* sort by expire date */}
-        <div>
-          <select
-            onChange={(e) => {
-              setSort(e.target.value);
-            }}
-            value={sort}
-            name="deadline"
-            id="deadline"
-            className=" p-4  rounded-md text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn"
-          >
-            <option value="dsc">Low Expired Date</option>
-            <option value="asc">High Expired Date</option>
-          </select>
-        </div>
-        {/* reset Button  */}
-        <div onClick={() => handleLayout(!setLayout())}>
-          <button className="text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn">
-            Change Layout
+          <button onClick={handleReset} className="btn btn-error text-white">
+            Reset
           </button>
         </div>
-        <button onClick={handleReset} className="btn btn-error text-white">
-          Reset
-        </button>
       </div>
 
       <div
         className={`grid grid-cols-1 ${
-          layout === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
-        } gap-5 justify-center min-h-[calc(100vh)]`}
+          layout === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"
+        } gap-5 md:grid-cols-2 md:my-10 my-5 justify-center min-h-[calc(100vh)]`}
       >
         {foods.map((food) => (
           <FoodCard food={food} key={food.id}></FoodCard>

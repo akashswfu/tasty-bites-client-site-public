@@ -45,7 +45,9 @@ const UpdateFood = () => {
         updateFood
       );
       toast.success("Food Updated Successfully");
-      navigate("/manageMyFood");
+      setTimeout(() => {
+        navigate("/manageMyFood");
+      }, 500);
 
       console.log(data);
     } catch (err) {
@@ -63,9 +65,13 @@ const UpdateFood = () => {
         {/* <link rel="canonical" href="" /> */}
       </Helmet>
       <div className="flex flex-col justify-center items-center space-y-3 mb-10">
-        <img className="rounded-full w-40" src={user.photoURL} alt="" />
-        <h1 className="text-2xl font-bold">Donar Name : {user.displayName}</h1>
-        <p>Donar Email: {user.email}</p>
+        <img
+          className="rounded-full md:w-40 md:h-40 w-32 h-32"
+          src={user.photoURL}
+          alt=""
+        />
+        <h1 className="text-2xl font-bold"> {user.displayName}</h1>
+        <p> {user.email}</p>
       </div>
       <form onSubmit={handleUpdate}>
         {/* foodname and foodImage row  */}
@@ -168,28 +174,25 @@ const UpdateFood = () => {
         </div>
         {/* Food Status  and donator name */}
 
-        <div className="md:flex gap-10 justify-center md:mb-6">
-          <h1 className="text-xl font-semibold">Status: Available</h1>
-          {/* <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Processing Time (hr)</span>
-            </label>
-            <label className="input-group">
-              <input
-                type="text"
-                placeholder="Processing Time"
-                name="processing"
-                className="input input-bordered w-full"
-                required
-              />
-            </label>
-          </div> */}
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Food Status</span>
+          </label>
+          <label className="input-group">
+            <input
+              type="text"
+              name="foodAvailable"
+              placeholder="food avaiable"
+              className="input input-bordered  w-full text-green-500"
+              readOnly
+              defaultValue={"Available"}
+            />
+          </label>
         </div>
-
         {/* user email and name  */}
 
         <input
-          className="btn w-full text-lg uppercase  text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700"
+          className="btn w-full mt-10 text-lg uppercase  text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700"
           type="submit"
           value="Update Food"
         />

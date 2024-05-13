@@ -80,25 +80,30 @@ const SingleFoodDetails = () => {
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: false, amount: 0.7 }}
-      className="card w-4/5 h-96   mx-auto card-side bg-base-100 "
+      className="card w-4/5 h-96   mx-auto card-side bg-base-100 my-20"
     >
       <Helmet>
         <title>TastyBites | {foodName}</title>
       </Helmet>
-      <figure className="w-1/2">
-        <img className="h-full" src={foodImage} alt="Movie" />
+      <figure className="w-1/2 rounded-md">
+        <img className="h-full " src={foodImage} alt="image" />
       </figure>
       <div className="w-1/2 space-y-3 h-full flex flex-col items-center justify-center">
-        <h2 className="card-title text-3xl font-semibold">{foodName}</h2>
-        <p className="text-xl">Food Quantify : {foodQuantity}</p>
-        <p>Donar Name: {user.displayName}</p>
-        <p>Expired Date : {deadline.slice(0, 10)}</p>
+        <h2 className="card-title text-4xl font-bold">{foodName}</h2>
+        <p className="text-lg font-semibold">Donar Name: {donatorName}</p>
+        <p className="text-lg font-semibold">Food Quantify : {foodQuantity}</p>
 
-        {/* Modal section  */}
+        <p className="text-red-500 font-semibold">
+          Expired Date : {deadline.slice(0, 10)}
+        </p>
+        <p className="text-blue-500 font-semibold pb-5">
+          Pickup Location : {pickupLocation}
+        </p>
 
-        {/* The button to open modal */}
-
-        <label htmlFor="my_modal_7" className="btn">
+        <label
+          htmlFor="my_modal_7"
+          className="btn  btn-outline rounded-md text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700 px-8 font-semibold uppercase text-md  text-white border-0 text-md"
+        >
           Requested
         </label>
 
@@ -203,7 +208,7 @@ const SingleFoodDetails = () => {
                         placeholder="FoodId"
                         className="input input-bordered  w-full"
                         readOnly
-                        defaultValue={deadline}
+                        defaultValue={deadline.slice(0, 10)}
                       />
                     </label>
                   </div>

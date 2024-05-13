@@ -18,7 +18,7 @@ const AddFood = () => {
     const form = e.target;
     const foodName = form.foodName.value;
     const foodImage = form.foodImage.value;
-    const foodQuantity = form.foodQuantity.value;
+    const foodQuantity = parseInt(form.foodQuantity.value);
     const pickupLocation = form.pickupLocation.value;
     const deadline = startDate;
     const additionalNotes = form.additionalNotes.value;
@@ -44,24 +44,31 @@ const AddFood = () => {
         withCredentials: true,
       });
       toast.success("Food Added Successfully");
-      navigate("/manageMyFood");
+      setTimeout(() => {
+        navigate("/manageMyFood");
+      }, 500);
+
       console.log(data);
     } catch (err) {
       console.log(err);
     }
   };
   return (
-    <div className="md:p-24 p-5 bg-gray-100">
+    <div className="md:p-24 p-5 bg-gray-100 ">
       <Helmet>
         <title>TastyBites | Add Food</title>
         {/* <link rel="canonical" href="" /> */}
       </Helmet>
-      {/* <h2 className="text-center text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text  text-4xl font-bold md:pb-16 my-10 md:my-0 uppercase">
-        Add a New Food
-      </h2> */}
+
       <div className="flex flex-col justify-center items-center space-y-3 mb-10">
-        <img className="rounded-full w-40 h-40" src={user.photoURL} alt="" />
-        <h1 className="text-2xl font-bold">Donar Name : {user.displayName}</h1>
+        <img
+          className="rounded-full md:w-40 md:h-40 w-32 h-32 "
+          src={user.photoURL}
+          alt=""
+        />
+        <h1 className="md:text-2xl font-bold">
+          Donar Name : {user.displayName}
+        </h1>
         <p>Donar Email: {user.email}</p>
       </div>
       <form onSubmit={handleAddFood}>

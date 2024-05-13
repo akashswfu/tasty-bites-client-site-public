@@ -3,8 +3,8 @@ const Footer = () => {
   return (
     <footer className="footer mt-10 footer-center p-10 bg-gray-200 dark:bg-purple-700 text-base-content rounded">
       <div className="flex flex-col items-center gap-3 ">
-        <img className="w-20 h-20 hidden md:flex lg:flex" src={icons} alt="" />
-        <span className="hidden text-xl lg:text-3xl font-bold md:flex lg:flex text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text ">
+        <img className="w-20 h-20 " src={icons} alt="" />
+        <span className=" text-2xl lg:text-3xl font-bold md:flex lg:flex text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text ">
           TastyBites
         </span>
       </div>

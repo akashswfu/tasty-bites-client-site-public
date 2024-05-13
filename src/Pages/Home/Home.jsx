@@ -47,36 +47,36 @@ const Home = () => {
         <title>TastyBites | Home</title>
         {/* <link rel="canonical" href="" /> */}
       </Helmet>
-      <div>
+      <div className="mt-10 md:mt-0 px-5 md:px-0">
         <Banner></Banner>
       </div>
       <div>
-        <h1 className="text-4xl font-bold text-center mt-20 mb-10">
+        <h1 className="text-4xl font-bold text-center mt-5 md:mt-20 md:mb-10">
           <span className="  text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text">
             {typeEffect}{" "}
           </span>
         </h1>
       </div>
 
-      <div className="grid grid-cols-1  md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 justify-center mx-auto md:grid-cols-2 lg:grid-cols-3 gap-5">
         {foods.slice(0, 6).map((food) => (
           <FoodCard food={food} key={food.id}></FoodCard>
         ))}
       </div>
-      <div className="py-16 text-center ">
+      <div className="md:py-16 py-5 text-center ">
         <Link to="/availableFoods">
           <button className="px-6 rounded-md py-3 border-0 text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700 text-white">
             SHOW ALL
           </button>
         </Link>
       </div>
-      <div>
+      <div className="px-5 md:px-0">
         <Service></Service>
       </div>
       <div>
         <MoreItem></MoreItem>
       </div>
-      <div className="mt-16">
+      <div className="mt-16 px-5 md:px-0">
         <Subscribe></Subscribe>
       </div>
 
