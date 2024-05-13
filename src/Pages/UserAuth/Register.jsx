@@ -77,7 +77,7 @@ const Register = () => {
       <div className="hero-content w-full  flex-col">
         <div className="text-center"></div>
         <div className="card shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-          <h1 className="text-3xl text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text font-bold text-center mt-8">
+          <h1 className="text-3xl text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text font-bold text-center mt-8">
             Create an account
           </h1>
           <form

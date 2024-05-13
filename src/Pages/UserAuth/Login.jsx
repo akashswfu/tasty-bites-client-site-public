@@ -75,7 +75,7 @@ const Login = () => {
       <div className="hero-content w-full flex-col mt-8">
         <div className="card shrink-0 w-full max-w-md  shadow-2xl bg-base-100 ">
           <div className="text-center ">
-            <h1 className="text-4xl font-bold my-8 text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text">
+            <h1 className="text-4xl font-bold my-8 text-transparent bg-gradient-to-r from-sky-500 to-indigo-800 bg-clip-text">
               Login now!
             </h1>
           </div>
@@ -131,7 +131,7 @@ const Login = () => {
           <div className="text-center mt-2  pb-5 flex gap-2 justify-center">
             <button
               onClick={handleGoogleLogin}
-              className="btn btn-outline hover:border-0 hover:outline-none bg-gradient-to-r  hover:from-purple-600 hover:to-pink-700 font-semibold text-purple-600"
+              className="btn btn-outline hover:border-0 hover:outline-none bg-gradient-to-r  hover:from-sky-600 hover:to-indigo-700 font-semibold text-sky-600"
             >
               <FcGoogle className="text-2xl me-2" />
               Google Login

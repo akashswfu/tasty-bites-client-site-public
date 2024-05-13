@@ -145,7 +145,7 @@ const AvailableFoods = () => {
       <div
         className={`grid grid-cols-1 ${
           layout === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"
-        } gap-5 md:grid-cols-2 md:my-10 my-5 justify-center min-h-[calc(100vh)]`}
+        } gap-5 md:grid-cols-2 md:my-10 my-5 justify-center  min-h-[calc(100vh)]`}
       >
         {foods.map((food) => (
           <FoodCard food={food} key={food.id}></FoodCard>

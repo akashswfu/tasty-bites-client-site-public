@@ -39,7 +39,11 @@ const ManageMyFoods = () => {
   };
 
   if (isLoading) {
-    return <p>Data is Still Loading</p>;
+    return (
+      <div className="text-center text-7xl h-min-[cal(100vh-130px)] text-blue-400 py-10">
+        Loading....
+      </div>
+    );
   }
 
   const handleDelete = async (id) => {

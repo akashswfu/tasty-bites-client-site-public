@@ -80,15 +80,15 @@ const SingleFoodDetails = () => {
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: false, amount: 0.7 }}
-      className="card w-4/5 h-96   mx-auto card-side bg-base-100 my-20"
+      className="flex flex-col lg:flex-row py-20 items-center lg:px-10"
     >
       <Helmet>
         <title>TastyBites | {foodName}</title>
       </Helmet>
-      <figure className="w-1/2 rounded-md">
+      <figure className="lg:w-1/2 w-full px-5 lg:px-0  rounded-md">
         <img className="h-full " src={foodImage} alt="image" />
       </figure>
-      <div className="w-1/2 space-y-3 h-full flex flex-col items-center justify-center">
+      <div className="lg:w-1/2 w-full mt-10 lg:mt-0  space-y-3 h-full flex flex-col items-center justify-center">
         <h2 className="card-title text-4xl font-bold">{foodName}</h2>
         <p className="text-lg font-semibold">Donar Name: {donatorName}</p>
         <p className="text-lg font-semibold">Food Quantify : {foodQuantity}</p>
@@ -320,7 +320,7 @@ const SingleFoodDetails = () => {
                   </div>
                 </div>
                 <input
-                  className="btn w-full text-lg uppercase  text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700"
+                  className="btn w-full lg:mt-0 mt-5 text-lg uppercase  text-white text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700"
                   type="submit"
                   value="Request Food"
                 />
