@@ -1,6 +1,9 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../components/CommonContent/Footer";
 import Navbar from "../components/CommonContent/Navbar";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Root = () => {
   return (
@@ -12,7 +15,6 @@ const Root = () => {
         <div className="max-w-7xl flex flex-col  mx-auto">
           <Outlet></Outlet>
         </div>
-
         <Footer></Footer>
       </div>
     </div>

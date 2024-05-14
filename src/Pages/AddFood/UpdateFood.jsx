@@ -12,7 +12,7 @@ const UpdateFood = () => {
   const food = useLoaderData();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
 
   const { mutateAsync } = useMutation({
     mutationFn: async (updateFood) => {
@@ -37,7 +37,7 @@ const UpdateFood = () => {
     const foodImage = form.foodImage.value;
     const foodQuantity = parseInt(form.foodQuantity.value);
     const pickupLocation = form.pickupLocation.value;
-    const deadline = startDate;
+    // const deadline = startDate;
     const additionalNotes = form.additionalNotes.value;
     const donatorEmail = user?.email;
     const donatorName = user?.displayName;
@@ -48,7 +48,7 @@ const UpdateFood = () => {
       foodImage,
       foodQuantity,
       pickupLocation,
-      deadline,
+      // deadline,
       additionalNotes,
       donatorEmail,
       donatorName,
@@ -166,14 +166,25 @@ const UpdateFood = () => {
         <div className="md:flex gap-10 justify-center md:mb-6">
           <div className="form-control md:w-1/2">
             <label className="text-gray-700 label">Deadline</label>
+            <label className="input-group">
+              <input
+                type="text"
+                // name="additionalNotes"
+                // placeholder="Additional Notes"
+                className="input input-bordered  w-full"
+                required
+                defaultValue={food.deadline.slice(0, 10)}
+                readOnly
+              />
+            </label>
 
-            <ReactDatePicker
+            {/* <ReactDatePicker
               className="border input input-bordered rounded-md w-full"
               readOnly
               selected={startDate}
               defaultValue={food.deadline}
               onChange={(date) => setStartDate(date)}
-            />
+            /> */}
           </div>
           <div className="form-control md:w-1/2">
             <label className="label">

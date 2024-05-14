@@ -41,7 +41,11 @@ const MyFoodRequest = () => {
       <h3 className="text-center text-3xl font-semibold py-10">
         My Foods Request
       </h3>
-      <div className="min-h-[calc(100vh-400px)] mt-10 ">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="min-h-[calc(100vh-400px)] mt-10 "
+      >
         <div className="overflow-x-auto">
           <table className="table table-auto border">
             {/* head */}

@@ -23,9 +23,8 @@ const MoreItem = () => {
       <div>
         <div className="grid grid-cols-1 px-5 md:px-0 md:grid-cols-2 lg:grid-cols-4 justify-center ">
           <div
-            data-aos="fade-right"
+            data-aos="zoom-in"
             data-aos-duration="1000"
-            data-aos-delay="500"
             className="overflow-hidden  relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl"
           >
             <img
@@ -42,9 +41,8 @@ const MoreItem = () => {
             </div>
           </div>
           <div
-            data-aos="fade-down"
+            data-aos="zoom-in"
             data-aos-duration="1000"
-            data-aos-delay="500"
             className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl"
           >
             <img
@@ -59,9 +57,8 @@ const MoreItem = () => {
             </div>
           </div>
           <div
-            data-aos="fade-left"
+            data-aos="zoom-in"
             data-aos-duration="1000"
-            data-aos-delay="500"
             className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl"
           >
             <img
@@ -76,9 +73,8 @@ const MoreItem = () => {
             </div>
           </div>
           <div
-            data-aos="fade-right"
+            data-aos="zoom-in"
             data-aos-duration="1000"
-            data-aos-delay="500"
             className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl"
           >
             <img
@@ -93,9 +89,8 @@ const MoreItem = () => {
             </div>
           </div>
           <div
-            data-aos="fade-up"
+            data-aos="zoom-in"
             data-aos-duration="1000"
-            data-aos-delay="500"
             className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl"
           >
             <img
@@ -110,9 +105,8 @@ const MoreItem = () => {
             </div>
           </div>
           <div
-            data-aos="fade-left"
+            data-aos="zoom-in"
             data-aos-duration="1000"
-            data-aos-delay="500"
             className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl"
           >
             <img
@@ -129,9 +123,8 @@ const MoreItem = () => {
             </div>
           </div>
           <div
-            data-aos="fade-left"
+            data-aos="zoom-in"
             data-aos-duration="1000"
-            data-aos-delay="500"
             className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl"
           >
             <img
@@ -148,9 +141,8 @@ const MoreItem = () => {
             </div>
           </div>
           <div
-            data-aos="fade-left"
+            data-aos="zoom-in"
             data-aos-duration="1000"
-            data-aos-delay="500"
             className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl"
           >
             <img

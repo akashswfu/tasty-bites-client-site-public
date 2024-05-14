@@ -14,7 +14,7 @@ const Service = () => {
     deleteSpeed: 40,
   });
   return (
-    <div className="mt-16">
+    <div data-aos="fade-right" data-aos-duration="1000" className="mt-16">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 space-y-7 md:space-y-0 bg-gray-100 py-16">
         <div className="flex flex-col space-y-4 items-center">
           <TbTruckDelivery className="w-20 h-20 text-red-600 " />

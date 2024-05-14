@@ -23,7 +23,11 @@ const OurChef = () => {
           Experience excellence today!
         </p>
       </Slide>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5 space-y-7 md:space-y-0">
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5 space-y-7 md:space-y-0"
+      >
         <div className="flex flex-col space-y-4 items-center mb-7 lg:mb-0">
           <img
             className="w-40 h-40 rounded-full "

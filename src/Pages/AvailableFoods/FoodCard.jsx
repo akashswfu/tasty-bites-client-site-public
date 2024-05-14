@@ -31,7 +31,7 @@ const FoodCard = ({ food }) => {
   // };
 
   return (
-    <div className="mx-auto">
+    <div data-aos="zoom-in" data-aos-duration="1000" className="mx-auto">
       <div className="max-w-sm mt-10 md:mx-auto shadow-2xl dark:bg-gray-800 dark:border-gray-700 mx-3">
         <div className="">
           <img className="h-60 w-full " src={foodImage} alt="" />
