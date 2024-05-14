@@ -47,7 +47,7 @@ const Login = () => {
     const { email, password } = data;
 
     try {
-      const result = signIn(email, password);
+      const result = await signIn(email, password);
       const { data } = await axios.post(
         `https://tasty-bites-server-site.vercel.app/jwt`,
         {

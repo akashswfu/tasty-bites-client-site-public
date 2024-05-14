@@ -47,7 +47,7 @@ const Home = () => {
         <title>TastyBites | Home</title>
         {/* <link rel="canonical" href="" /> */}
       </Helmet>
-      <div className="mt-10 md:mt-0 px-5 md:px-0">
+      <div className="mt-6  md:mt-6 lg:mt-0 px-5 md:px-0">
         <Banner></Banner>
       </div>
       <div>

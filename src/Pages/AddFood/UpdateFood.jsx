@@ -19,7 +19,7 @@ const UpdateFood = () => {
     const form = e.target;
     const foodName = form.foodName.value;
     const foodImage = form.foodImage.value;
-    const foodQuantity = form.foodQuantity.value;
+    const foodQuantity = parseInt(form.foodQuantity.value);
     const pickupLocation = form.pickupLocation.value;
     const deadline = startDate;
     const additionalNotes = form.additionalNotes.value;
@@ -42,7 +42,8 @@ const UpdateFood = () => {
     try {
       const { data } = await axios.put(
         `https://tasty-bites-server-site.vercel.app/food/${food._id}`,
-        updateFood
+        updateFood,
+        { withCredentials: true }
       );
       toast.success("Food Updated Successfully");
       setTimeout(() => {
@@ -151,6 +152,7 @@ const UpdateFood = () => {
 
             <ReactDatePicker
               className="border input input-bordered rounded-md w-full"
+              readOnly
               selected={startDate}
               defaultValue={food.deadline}
               onChange={(date) => setStartDate(date)}

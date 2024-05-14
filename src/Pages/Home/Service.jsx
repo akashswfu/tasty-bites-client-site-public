@@ -21,7 +21,7 @@ const Service = () => {
           <h2 className="text-3xl font-bold text-center">
             Fatest <br /> Delivery
           </h2>
-          <p className="w-full px-5 md:px-0 md:w-1/2 text-center text-xl  font-semibold">
+          <p className="w-full px-5 md:px-0 md:w-2/3 text-center text-xl  font-semibold">
             We deliver across the country to make sure you get your products on
             time.
           </p>
@@ -31,7 +31,7 @@ const Service = () => {
           <h2 className="text-3xl font-bold text-center">
             Satisfied <br /> Customers
           </h2>
-          <p className="w-full px-5 md:px-0 md:w-1/2 text-center text-xl  font-semibold">
+          <p className="w-full px-5 md:px-0 md:w-2/3 text-center text-xl  font-semibold">
             We strive to give our customers the best experience!
           </p>
         </div>
@@ -40,7 +40,7 @@ const Service = () => {
           <h2 className="text-3xl font-bold text-center">
             Top-Notch <br /> Support
           </h2>
-          <p className="w-full px-5 md:px-0 md:w-1/2 text-center text-xl  font-semibold">
+          <p className="w-full px-5 md:px-0 md:w-2/3 text-center text-xl  font-semibold">
             Contact us anytime if you're having issues with your order.
           </p>
         </div>
@@ -49,7 +49,7 @@ const Service = () => {
           <h2 className="text-3xl font-bold text-center">
             Cash On <br /> Delivery{" "}
           </h2>
-          <p className="w-full px-5 md:px-0 md:w-1/2 text-center text-xl  font-semibold">
+          <p className="w-full px-5 md:px-0 md:w-2/3 text-center text-xl  font-semibold">
             We only use trusted payment providers to make sure your transaction
             is secure!
           </p>

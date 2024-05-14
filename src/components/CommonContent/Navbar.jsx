@@ -87,7 +87,7 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost flex md:hidden lg:hidden "
+            className="btn btn-ghost flex  lg:hidden "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-6  z-10  p-2 shadow bg-base-100  relative rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-6  z-10  p-2 shadow bg-base-100  relative rounded-box w-52 md:w-[700px]"
           >
             {links}
           </ul>
@@ -122,7 +122,7 @@ const Navbar = () => {
           </span>
         </div>
       </div>
-      <div className="navbar-center hidden md:flex lg:flex">
+      <div className="navbar-center hidden  lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">

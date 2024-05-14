@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 
 const MyFoodRequest = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [foods, setFoods] = useState([]);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
@@ -28,6 +28,13 @@ const MyFoodRequest = () => {
     additionalNotes,
     amount,
   } = foods;
+  if (foods.length === 0) {
+    return (
+      <div className="text-center text-7xl h-min-[cal(100vh-130px)] text-blue-400 py-10">
+        Loading....
+      </div>
+    );
+  }
 
   return (
     <div>

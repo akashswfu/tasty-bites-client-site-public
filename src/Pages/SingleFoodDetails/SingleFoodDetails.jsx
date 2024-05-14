@@ -325,7 +325,6 @@ const SingleFoodDetails = () => {
                   value="Request Food"
                 />
               </form>
-              <Toaster />
             </div>
           </div>
           <label className="modal-backdrop" htmlFor="my_modal_7">
@@ -333,6 +332,7 @@ const SingleFoodDetails = () => {
           </label>
         </div>
       </div>
+      <Toaster />
     </motion.div>
   );
 };
