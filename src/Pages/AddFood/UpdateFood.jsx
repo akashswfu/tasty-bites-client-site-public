@@ -6,14 +6,30 @@ import ReactDatePicker from "react-datepicker";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../ReactHooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
+import { useMutation } from "@tanstack/react-query";
 
 const UpdateFood = () => {
   const food = useLoaderData();
   const navigate = useNavigate();
-
   const { user } = useAuth();
-
   const [startDate, setStartDate] = useState(new Date());
+
+  const { mutateAsync } = useMutation({
+    mutationFn: async (updateFood) => {
+      const { data } = await axios.put(
+        `https://tasty-bites-server-site.vercel.app/food/${food._id}`,
+        updateFood,
+        { withCredentials: true }
+      );
+    },
+    onSuccess: () => {
+      toast.success("Food Updated Successfully");
+      setTimeout(() => {
+        navigate("/manageMyFood");
+      }, 500);
+    },
+  });
+
   const handleUpdate = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -38,22 +54,23 @@ const UpdateFood = () => {
       donatorName,
       donatorImage,
     };
+    await mutateAsync(updateFood);
 
-    try {
-      const { data } = await axios.put(
-        `https://tasty-bites-server-site.vercel.app/food/${food._id}`,
-        updateFood,
-        { withCredentials: true }
-      );
-      toast.success("Food Updated Successfully");
-      setTimeout(() => {
-        navigate("/manageMyFood");
-      }, 500);
+    // try {
+    //   const { data } = await axios.put(
+    //     `https://tasty-bites-server-site.vercel.app/food/${food._id}`,
+    //     updateFood,
+    //     { withCredentials: true }
+    //   );
+    //   toast.success("Food Updated Successfully");
+    //   setTimeout(() => {
+    //     navigate("/manageMyFood");
+    //   }, 500);
 
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
+    //   console.log(data);
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
   return (

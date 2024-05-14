@@ -28,13 +28,9 @@ const MyFoodRequest = () => {
     additionalNotes,
     amount,
   } = foods;
-  if (foods.length === 0) {
-    return (
-      <div className="text-center text-7xl h-min-[cal(100vh-130px)] text-blue-400 py-10">
-        Loading....
-      </div>
-    );
-  }
+  // if (foods.length === 0) {
+  //   return <p>You Have no food request</p>;
+  // }
 
   return (
     <div>
