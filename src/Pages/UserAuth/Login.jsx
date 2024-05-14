@@ -20,7 +20,7 @@ const Login = () => {
     try {
       const result = await googleLogin();
       const { data } = await axios.post(
-        `http://localhost:5000/jwt`,
+        `https://tasty-bites-server-site.vercel.app/jwt`,
         {
           email: result?.user?.email,
         },
@@ -49,7 +49,7 @@ const Login = () => {
     try {
       const result = signIn(email, password);
       const { data } = await axios.post(
-        `http://localhost:5000/jwt`,
+        `https://tasty-bites-server-site.vercel.app/jwt`,
         {
           email: result?.user?.email,
         },

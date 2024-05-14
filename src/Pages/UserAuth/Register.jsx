@@ -52,7 +52,7 @@ const Register = () => {
       });
 
       const { data } = await axios.post(
-        `http://localhost:5000/jwt`,
+        `https://tasty-bites-server-site.vercel.app/jwt`,
         {
           email: result?.user?.email,
         },

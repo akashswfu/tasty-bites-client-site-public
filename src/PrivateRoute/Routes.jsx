@@ -67,7 +67,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/food/${params.id}`),
+          fetch(`https://tasty-bites-server-site.vercel.app/food/${params.id}`),
       },
       {
         path: "/food/:id",
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/food/${params.id}`),
+          fetch(`https://tasty-bites-server-site.vercel.app/food/${params.id}`),
       },
     ],
   },

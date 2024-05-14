@@ -38,17 +38,7 @@ const Banner = () => {
           data-aos-duration="1000"
           data
           className="w-full md:h-[450px] lg:h-[650px] rounded-lg "
-          src="https://i.postimg.cc/vH27dsND/b2.jpg"
-          alt=""
-        />
-      </SwiperSlide>
-      <SwiperSlide className="mb-3  relative bg-white">
-        <img
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data
-          className="w-full md:h-[450px] lg:h-[650px] rounded-lg opacity-50"
-          src="https://i.postimg.cc/SNxL5sVw/b1.jpg"
+          src="https://i.postimg.cc/tCyFdp7p/banner1.jpg"
           alt=""
         />
       </SwiperSlide>
@@ -58,7 +48,7 @@ const Banner = () => {
           data-aos-duration="1000"
           data
           className="w-full md:h-[450px] lg:h-[650px] rounded-lg"
-          src="https://i.postimg.cc/YC46rs5R/b3.jpg"
+          src="https://i.postimg.cc/5tvtkQkG/banner3.jpg"
           alt=""
         />
       </SwiperSlide>
@@ -68,7 +58,7 @@ const Banner = () => {
           data-aos-duration="1000"
           data
           className="w-full md:h-[450px] lg:h-[650px] rounded-lg"
-          src="https://i.postimg.cc/s275SZDZ/b4.jpg"
+          src="https://i.postimg.cc/QN6jmqdC/banner4.jpg"
           alt=""
         />
       </SwiperSlide>
@@ -78,7 +68,17 @@ const Banner = () => {
           data-aos-duration="1000"
           data
           className="w-full md:h-[450px] lg:h-[650px] rounded-lg"
-          src="https://i.postimg.cc/PxMZVsDX/b5.jpg"
+          src="https://i.postimg.cc/bwP8NV66/banner5.jpg"
+          alt=""
+        />
+      </SwiperSlide>
+      <SwiperSlide className="mb-3  relative bg-white">
+        <img
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          data
+          className="w-full md:h-[450px] lg:h-[650px] rounded-lg"
+          src="https://i.postimg.cc/VNBJkbBt/banner6.jpg"
           alt=""
         />
       </SwiperSlide>

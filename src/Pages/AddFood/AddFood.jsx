@@ -18,7 +18,7 @@ const AddFood = () => {
     const form = e.target;
     const foodName = form.foodName.value;
     const foodImage = form.foodImage.value;
-    const foodQuantity = parseInt(form.foodQuantity.value);
+    const foodQuantity = form.foodQuantity.value;
     const pickupLocation = form.pickupLocation.value;
     const deadline = startDate;
     const additionalNotes = form.additionalNotes.value;
@@ -40,9 +40,13 @@ const AddFood = () => {
     console.log(newFood);
 
     try {
-      const { data } = await axios.post("http://localhost:5000/food", newFood, {
-        withCredentials: true,
-      });
+      const { data } = await axios.post(
+        "https://tasty-bites-server-site.vercel.app/food",
+        newFood,
+        {
+          withCredentials: true,
+        }
+      );
       toast.success("Food Added Successfully");
       setTimeout(() => {
         navigate("/manageMyFood");
@@ -139,7 +143,7 @@ const AddFood = () => {
 
         {/* expdata  and additionalNote row  */}
 
-        <div className="md:flex gap-10 justify-center md:mb-6">
+        <div className="md:flex items-center gap-10 justify-center md:mb-6">
           <div className="form-control md:w-1/2">
             <label className="text-gray-700 label">Deadline</label>
 

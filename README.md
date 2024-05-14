@@ -1,5 +1,7 @@
 # npm package name which i have used for this project.
 
+- React Hook Form
+
 - React simple Typewriter
 
 - React Awesome reveal
@@ -8,13 +10,15 @@
 
 - React Hook from,
 
--
+- Tanstack query
+
+- Use Axios Custom Hook
 
 # Tasty Bites : https://tasty-bites-auth.web.app
 
 # My website main Features
 
-- Data fetch by Axios also using usehook,
+- Data fetch by Axios also using custom usehook,
 
 - First i use firebase authentication for login and registration.
 

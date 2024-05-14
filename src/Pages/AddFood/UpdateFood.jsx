@@ -41,7 +41,7 @@ const UpdateFood = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/food/${food._id}`,
+        `https://tasty-bites-server-site.vercel.app/food/${food._id}`,
         updateFood
       );
       toast.success("Food Updated Successfully");
@@ -152,7 +152,7 @@ const UpdateFood = () => {
             <ReactDatePicker
               className="border input input-bordered rounded-md w-full"
               selected={startDate}
-              defaultValue={food.startDate}
+              defaultValue={food.deadline}
               onChange={(date) => setStartDate(date)}
             />
           </div>

@@ -20,7 +20,7 @@ const AvailableFoods = () => {
   // useEffect(() => {
   //   const getData = async () => {
   //     const { data } = await axios(
-  //       `http://localhost:5000/all-foods?page=${currentPage}&size=${foodsPerPage}&sort=${sort}`
+  //       `https://tasty-bites-server-site.vercel.app/all-foods?page=${currentPage}&size=${foodsPerPage}&sort=${sort}`
   //     );
   //     setFoods(data);
   //   };
@@ -106,8 +106,8 @@ const AvailableFoods = () => {
               id="deadline"
               className=" p-4  rounded-md text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-700  px-6 font-semibold uppercase text-md  text-white border-0 text-md btn"
             >
-              <option value="dsc">Low Expired Date</option>
               <option value="asc">High Expired Date</option>
+              <option value="dsc">Low Expired Date</option>
             </select>
           </div>
           <form onSubmit={handleSearch}>

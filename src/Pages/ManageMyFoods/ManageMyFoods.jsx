@@ -16,8 +16,6 @@ const ManageMyFoods = () => {
     data: myDatas = [],
     isLoading,
     refetch,
-    isError,
-    error,
   } = useQuery({
     queryFn: () => getData(),
     queryKey: ["myData"],

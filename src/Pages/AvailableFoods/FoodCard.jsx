@@ -41,7 +41,7 @@ const FoodCard = ({ food }) => {
             <h5 className="mb-2 md:text-2xl text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {foodName}
             </h5>
-            <p>{additionalNotes}</p>
+            <p>{additionalNotes.slice(0, 80)}...</p>
             {/* <h1 className="text-transparent bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-xl font-semibold py-2">
               {donatorName}
             </h1> */}

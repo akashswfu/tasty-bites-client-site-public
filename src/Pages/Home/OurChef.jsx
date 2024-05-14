@@ -4,7 +4,7 @@ import { Slide } from "react-awesome-reveal";
 
 const OurChef = () => {
   const [typeEffect] = useTypewriter({
-    words: ["Best Award Winning Chef"],
+    words: ["Best Award Winning Chefs"],
     // loop: {},
     typeSpeed: 100,
     deleteSpeed: 40,
@@ -27,16 +27,16 @@ const OurChef = () => {
         <div className="flex flex-col space-y-4 items-center mb-7 lg:mb-0">
           <img
             className="w-40 h-40 rounded-full "
-            src="https://i.postimg.cc/KYDRx78Q/m1.jpg"
+            src="https://i.postimg.cc/wBvcMxxz/c1.jpg"
             alt=""
           />
           <h2 className="text-2xl font-semibold">Alex Panday</h2>
-          <p className="text-xl font-semibold">Bangladesh</p>
+          <p className="text-xl font-semibold">India</p>
         </div>
         <div className="flex flex-col space-y-4 items-center">
           <img
             className="w-40 h-40 rounded-full "
-            src="https://i.postimg.cc/zBdvRJWg/m2.jpg"
+            src="https://i.postimg.cc/QCLpfpQN/c4.jpg"
             alt=""
           />
           <h2 className="text-2xl font-semibold">Subin Ahemed</h2>
@@ -45,7 +45,7 @@ const OurChef = () => {
         <div className="flex flex-col space-y-4 items-center">
           <img
             className="w-40 h-40 rounded-full "
-            src="https://i.postimg.cc/4yq3BBW4/m3.jpg"
+            src="https://i.postimg.cc/QMygTLVT/c2.jpg"
             alt=""
           />
           <h2 className="text-2xl font-semibold">Bijoy Sarkar</h2>
@@ -54,11 +54,11 @@ const OurChef = () => {
         <div className="flex flex-col space-y-4 items-center">
           <img
             className="w-40 h-40 rounded-full "
-            src="https://i.postimg.cc/vHxTcwm4/m4.jpg"
+            src="https://i.postimg.cc/634rVHG1/c3.jpg"
             alt=""
           />
           <h2 className="text-2xl font-semibold">Akash Sutradhar </h2>
-          <p className="text-xl font-semibold">India</p>
+          <p className="text-xl font-semibold">Bangladesh</p>
         </div>
       </div>
     </div>
